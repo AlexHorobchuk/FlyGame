@@ -18,6 +18,12 @@
 		B00332592A400EED00BD0AAB /* MoverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332582A400EED00BD0AAB /* MoverProtocol.swift */; };
 		B003325B2A40104300BD0AAB /* SceneMoverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003325A2A40104300BD0AAB /* SceneMoverExtension.swift */; };
 		B003325D2A402A8100BD0AAB /* ShootButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003325C2A402A8100BD0AAB /* ShootButton.swift */; };
+		B00332602A41385500BD0AAB /* MapGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003325F2A41385500BD0AAB /* MapGenerator.swift */; };
+		B00332632A414A8E00BD0AAB /* MapFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332622A414A8E00BD0AAB /* MapFactory.swift */; };
+		B00332652A415A5C00BD0AAB /* BoundryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332642A415A5C00BD0AAB /* BoundryNode.swift */; };
+		B00332672A41628600BD0AAB /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332662A41628600BD0AAB /* CGPointExtension.swift */; };
+		B00332692A416C7A00BD0AAB /* PointerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332682A416C7A00BD0AAB /* PointerNode.swift */; };
+		B003326B2A417DD000BD0AAB /* CameraExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B003326A2A417DD000BD0AAB /* CameraExtension.swift */; };
 		B0E6D64C2A3FE7AC00531D49 /* FlyGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */; };
 		B0E6D64E2A3FE7AC00531D49 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */; };
 		B0E6D6502A3FE7AE00531D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E6D64F2A3FE7AE00531D49 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 		B00332582A400EED00BD0AAB /* MoverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoverProtocol.swift; sourceTree = "<group>"; };
 		B003325A2A40104300BD0AAB /* SceneMoverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMoverExtension.swift; sourceTree = "<group>"; };
 		B003325C2A402A8100BD0AAB /* ShootButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootButton.swift; sourceTree = "<group>"; };
+		B003325F2A41385500BD0AAB /* MapGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGenerator.swift; sourceTree = "<group>"; };
+		B00332622A414A8E00BD0AAB /* MapFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFactory.swift; sourceTree = "<group>"; };
+		B00332642A415A5C00BD0AAB /* BoundryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundryNode.swift; sourceTree = "<group>"; };
+		B00332662A41628600BD0AAB /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
+		B00332682A416C7A00BD0AAB /* PointerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerNode.swift; sourceTree = "<group>"; };
+		B003326A2A417DD000BD0AAB /* CameraExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraExtension.swift; sourceTree = "<group>"; };
 		B0E6D6482A3FE7AC00531D49 /* FlyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyGameApp.swift; sourceTree = "<group>"; };
 		B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -58,6 +70,7 @@
 		B003323B2A3FEAA300BD0AAB /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B00332612A414A7800BD0AAB /* Factory */,
 				B00332482A3FEE7F00BD0AAB /* Nodes */,
 				B003323C2A3FEAB300BD0AAB /* GameScene.swift */,
 				B003323E2A3FEAC100BD0AAB /* Coordinator.swift */,
@@ -86,6 +99,8 @@
 			children = (
 				B00332452A3FEC0100BD0AAB /* GameVMExtension.swift */,
 				B003325A2A40104300BD0AAB /* SceneMoverExtension.swift */,
+				B00332662A41628600BD0AAB /* CGPointExtension.swift */,
+				B003326A2A417DD000BD0AAB /* CameraExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -96,6 +111,8 @@
 				B00332492A3FEEDD00BD0AAB /* ObstacleNode.swift */,
 				B003324B2A3FF4D800BD0AAB /* PlayerNode.swift */,
 				B003324D2A3FF4F300BD0AAB /* StarNode.swift */,
+				B00332642A415A5C00BD0AAB /* BoundryNode.swift */,
+				B00332682A416C7A00BD0AAB /* PointerNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -125,6 +142,22 @@
 			path = MoverService;
 			sourceTree = "<group>";
 		};
+		B003325E2A41384400BD0AAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B003325F2A41385500BD0AAB /* MapGenerator.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B00332612A414A7800BD0AAB /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				B00332622A414A8E00BD0AAB /* MapFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		B0E6D63F2A3FE7AC00531D49 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +180,7 @@
 				B00332472A3FEDC600BD0AAB /* Info.plist */,
 				B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */,
 				B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */,
+				B003325E2A41384400BD0AAB /* Models */,
 				B00332402A3FEACE00BD0AAB /* ViewModel */,
 				B003323B2A3FEAA300BD0AAB /* Scene */,
 				B00332502A3FFBA500BD0AAB /* Views */,
@@ -239,11 +273,17 @@
 				B00332592A400EED00BD0AAB /* MoverProtocol.swift in Sources */,
 				B003323F2A3FEAC100BD0AAB /* Coordinator.swift in Sources */,
 				B003324A2A3FEEDD00BD0AAB /* ObstacleNode.swift in Sources */,
+				B00332632A414A8E00BD0AAB /* MapFactory.swift in Sources */,
 				B003323D2A3FEAB300BD0AAB /* GameScene.swift in Sources */,
+				B00332652A415A5C00BD0AAB /* BoundryNode.swift in Sources */,
 				B003325B2A40104300BD0AAB /* SceneMoverExtension.swift in Sources */,
 				B0E6D64E2A3FE7AC00531D49 /* MainScreen.swift in Sources */,
 				B00332422A3FEAE000BD0AAB /* GameVM.swift in Sources */,
 				B003325D2A402A8100BD0AAB /* ShootButton.swift in Sources */,
+				B00332672A41628600BD0AAB /* CGPointExtension.swift in Sources */,
+				B00332692A416C7A00BD0AAB /* PointerNode.swift in Sources */,
+				B003326B2A417DD000BD0AAB /* CameraExtension.swift in Sources */,
+				B00332602A41385500BD0AAB /* MapGenerator.swift in Sources */,
 				B003324E2A3FF4F300BD0AAB /* StarNode.swift in Sources */,
 				B00332462A3FEC0100BD0AAB /* GameVMExtension.swift in Sources */,
 				B003324C2A3FF4D800BD0AAB /* PlayerNode.swift in Sources */,
