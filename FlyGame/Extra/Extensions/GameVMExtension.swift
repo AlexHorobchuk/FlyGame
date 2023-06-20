@@ -10,6 +10,6 @@ import Foundation
 extension GameVM: Equatable {
     
     static func == (lhs: GameVM, rhs: GameVM) -> Bool {
-        return lhs.points == rhs.points
+        return lhs.starsQuontity == rhs.starsQuontity
     }
 }

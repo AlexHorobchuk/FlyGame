@@ -33,7 +33,7 @@ final class PlayerNode: SKShapeNode {
     
     private func move(x: CGFloat, y: CGFloat) {
         self.removeAllActions()
-        let moveAction = SKAction.move(by: CGVector(dx: x * 10, dy: -y * 10), duration: 3)
+        let moveAction = SKAction.move(by: CGVector(dx: x * 8, dy: -y * 8), duration: 1)
         let continuousMove = SKAction.repeatForever(moveAction)
         self.run(continuousMove)
     }
