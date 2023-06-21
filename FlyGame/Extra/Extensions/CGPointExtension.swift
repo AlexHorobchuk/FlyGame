@@ -8,6 +8,7 @@
 import Foundation
 
 extension CGPoint {
+    
     func distance(point: CGPoint) -> CGFloat {
         return abs(CGFloat(hypotf(Float(point.x - x), Float(point.y - y))))
     }

@@ -19,8 +19,23 @@ struct MainScreen: View {
                     .frame(width: gr.size.width, height: gr.size.height)
                     .allowsHitTesting(false)
             }
+            .edgesIgnoringSafeArea(.all)
             
             VStack {
+                HStack {
+                    HelthBar(health: gameVM.health)
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        StarsIcon(allStars: gameVM.starsQuontity,
+                                  collectedStars: gameVM.collectedStars)
+                        
+                        BulletIcon(bullets: gameVM.bullets)
+                    }
+                }
+                .padding(10)
+                
                 Spacer()
                 
                 HStack {
@@ -28,14 +43,13 @@ struct MainScreen: View {
                     
                     Spacer()
                     
-                    Button(action: { }) {
+                    Button(action: { gameVM.shoot() }) {
                         ShootButton()
                     }
                 }
-                .padding(40)
+                .padding(10)
             }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

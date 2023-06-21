@@ -38,9 +38,9 @@ struct Thumbstick: View {
                                 let scaleFactor = maxRadius / distance
                                 state = CGSize(width: translation.width * scaleFactor, height: translation.height * scaleFactor)
                             }
-                            game.mover?.move(x: state.width, y: state.height)
+                            game.logic?.move(x: state.width, y: state.height)
                         }
-                        .onEnded({ _ in game.mover?.move(x: 0, y: 0) }))
+                        .onEnded({ _ in game.logic?.move(x: 0, y: 0) }))
         }
     }
 }

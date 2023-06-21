@@ -7,13 +7,14 @@
 
 import SpriteKit
 
-final class StartNode: SKShapeNode {
+final class StartNode: SKSpriteNode {
     
     var radius: CGFloat = 30
     
-    override init() {
-        super.init()
-        self.path = CGPath(ellipseIn: CGRect(x: -radius, y: -radius, width: radius * 2, height: radius * 2), transform: nil)
+    init() {
+        let texture = SKTexture(image: UIImage(systemName: "star.fill")!)
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
+        self.name = "Star"
         setUpNode()
     }
     
@@ -39,11 +40,36 @@ final class StartNode: SKShapeNode {
     }
     
     private func setUpNode() {
-        self.fillColor = SKColor(.black)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.affectedByGravity = false
-        
+        self.physicsBody?.categoryBitMask = PhysicCategory.star
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = PhysicCategory.player
         setUpObstacle()
+    }
+    
+    private func changeBitMask() {
+        self.physicsBody = nil
+        for children in self.children {
+            children.physicsBody = nil
+        }
+    }
+    
+    func setParticle(target: SKNode) {
+        for children in self.children {
+            let obstacle = children as? ObstacleNode
+            obstacle?.setUpEmitter(target: target)
+        }
+    }
+    
+    func captured() {
+        changeBitMask()
+        let scaleAction = SKAction.scale(to: 0, duration: 1)
+        let fadeAction = SKAction.fadeOut(withDuration: 1)
+        let removeAction = SKAction.run { self.removeFromParent() }
+        let groupAction = SKAction.group([scaleAction, fadeAction])
+        
+        self.run(SKAction.sequence([groupAction, removeAction]))
     }
 }

@@ -7,10 +7,14 @@
 
 import Foundation
 
-extension GameScene : MoverService {
+extension GameScene : GameLogicService {
+    
+    func shoot() {
+        let bullet = player.shoot()
+        self.addChild(bullet)
+    }
     
     func move(x: CGFloat, y: CGFloat) {
-        guard let player = getPlayer() else { return }
         player.moveWithDirection(x: x, y: y)
     }
 }

@@ -7,16 +7,16 @@
 
 import SpriteKit
 
-final class PlayerNode: SKShapeNode {
+final class PlayerNode: SKSpriteNode {
     
     var radius: CGFloat = 30
-    var angle: CGFloat? = nil
+    var angle: CGFloat = 0
+    var isMoving = false
     
     init(position: CGPoint) {
-        super.init()
-        self.path = CGPath(ellipseIn: CGRect(x: -radius, y: -radius, width: radius * 2, height: radius * 2), transform: nil)
+        let texture = SKTexture(image: UIImage(systemName: "face.smiling.inverse")!)
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
         self.position = position
-        self.name = "Player"
         setUpNode()
     }
     
@@ -25,10 +25,14 @@ final class PlayerNode: SKShapeNode {
     }
     
     private func setUpNode() {
-        self.fillColor = SKColor(.green)
+        self.name = "Player"
+        self.zPosition = 3
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicCategory.player
+        self.physicsBody?.collisionBitMask = PhysicCategory.labyrinth | PhysicCategory.boundry
+        self.physicsBody?.contactTestBitMask = PhysicCategory.obstacle | PhysicCategory.labyrinth | PhysicCategory.star
     }
     
     private func move(x: CGFloat, y: CGFloat) {
@@ -40,22 +44,39 @@ final class PlayerNode: SKShapeNode {
     
     private func stayOnSport() {
         self.removeAllActions()
-        self.angle = nil
+        isMoving = false
     }
     
     func moveWithDirection(x: CGFloat, y: CGFloat) {
         guard x != 0 && y != 0 else { return stayOnSport() }
         let newAngle = atan2(y, x)
          
-        if angle == nil {
+        if !isMoving {
+            isMoving = true
             move(x: x, y: y)
             angle = newAngle
         }
         else {
-            if abs(newAngle - angle!) >= 0.3 {
-                self.move(x: x, y: y)
+            if abs(newAngle - angle) >= 0.3 {
+                move(x: x, y: y)
                 angle = newAngle
             }
         }
-     }
+    }
+    
+    func attacked() {
+        
+    }
+    
+    func shoot() -> BulletNode {
+        let bullet = BulletNode()
+        
+        let coordinatesX = (radius + bullet.radius) * cos(angle) + self.position.x
+        let coordinatesY = self.position.y - (radius + bullet.radius) * sin(angle)
+        let bulletPosition = CGPoint(x: coordinatesX, y: coordinatesY)
+        bullet.position = bulletPosition
+        
+        bullet.shootInDirection(direction: angle)
+        return bullet
+    }
 }

@@ -18,7 +18,7 @@ class MapFactory {
         case .star:
             return StartNode()
         case .labirint:
-            return SKShapeNode(rectOf: .init(width: 100, height: 100))
+            return LabirinthNode()
         }
     }
     

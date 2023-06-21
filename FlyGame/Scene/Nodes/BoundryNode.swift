@@ -23,6 +23,8 @@ class BoundryNode: SKShapeNode {
         self.strokeColor = .red
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.path!)
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.categoryBitMask = PhysicCategory.boundry
+        self.physicsBody?.collisionBitMask = PhysicCategory.player
     }
     
     

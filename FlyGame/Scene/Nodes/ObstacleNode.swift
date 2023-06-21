@@ -7,14 +7,16 @@
 
 import SpriteKit
 
-final class ObstacleNode: SKShapeNode {
+final class ObstacleNode: SKSpriteNode {
     
     var radius: CGFloat = 20
     
     init(position: CGPoint) {
-        super.init()
-        self.path = CGPath(ellipseIn: CGRect(x: -radius, y: -radius, width: radius * 2, height: radius * 2), transform: nil)
+        let texture = SKTexture(image: UIImage(systemName: "moon.stars.circle.fill")!)
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
+        self.zPosition = 1
         self.position = position
+        self.name = "Obstacle"
         setUpNode()
     }
     
@@ -23,10 +25,13 @@ final class ObstacleNode: SKShapeNode {
     }
     
     private func setUpNode() {
-        self.fillColor = SKColor(.pink)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicCategory.obstacle
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = PhysicCategory.player | PhysicCategory.bullet
+        self.physicsBody?.usesPreciseCollisionDetection = true
     }
     
     private func createPath(center: CGPoint, radius: CGFloat) -> UIBezierPath {
@@ -41,5 +46,12 @@ final class ObstacleNode: SKShapeNode {
         let circularMotion = SKAction.follow(path.cgPath, asOffset: false, orientToPath: true, duration: 5.0)
         let repeatAction = SKAction.repeatForever(circularMotion)
         self.run(repeatAction)
+    }
+    
+    func setUpEmitter(target: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "Fire")!
+        emitter.zPosition = -1
+        emitter.targetNode = target
+        self.addChild(emitter)
     }
 }
