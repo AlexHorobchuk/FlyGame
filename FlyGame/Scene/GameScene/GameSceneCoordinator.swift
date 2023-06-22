@@ -5,7 +5,6 @@
 //  Created by Olha Dzhyhirei on 6/18/23.
 //
 
-import Foundation
 
 import SpriteKit
 import SwiftUI
@@ -34,11 +33,12 @@ struct GameSpriteView: UIViewRepresentable {
         }
     }
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator(viewModel: viewModel)
+    func makeCoordinator() -> GSCoordinator {
+        GSCoordinator(viewModel: viewModel)
     }
 
-    final class Coordinator: NSObject {
+final class GSCoordinator: NSObject {
+    
         var viewModel: GameVM
 
         init(viewModel: GameVM) {

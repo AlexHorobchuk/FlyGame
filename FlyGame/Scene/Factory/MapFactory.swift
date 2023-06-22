@@ -9,9 +9,14 @@ import SpriteKit
 
 class MapFactory {
     
-    private let spacing = 700
+    enum MapType {
+        case labirinth, starCollecting
+    }
     
-    private func createNode(cell: MapCel) -> SKNode? {
+    private let spacing = 700
+    private let labirintSpacing = 100
+    
+    private func createNode(cell: MapCell) -> SKNode? {
         switch cell {
         case .empty:
             return nil
@@ -19,10 +24,18 @@ class MapFactory {
             return StartNode()
         case .labirint:
             return LabirinthNode()
+        case .start:
+            return nil
+        case .road:
+            return nil
+        case .wall:
+            return WallNode()
+        case .end:
+            return TrophyNode()
         }
     }
     
-    private func getBoundary(map: [[MapCel]]) -> SKShapeNode {
+    private func getBoundary(map: [[MapCell]]) -> SKShapeNode {
         let size = map.count * spacing
         let boundaryOrigin = CGPoint(x: -spacing / 2, y: -spacing / 2)
         let boundaryNode = BoundryNode(position: boundaryOrigin, size: CGSize.init(width: size, height: size))
@@ -30,8 +43,9 @@ class MapFactory {
         return boundaryNode
     }
     
-    func setupMap(map: [[MapCel]]) -> [SKNode] {
+    func setupMap(map: [[MapCell]], mapType: MapType) -> [SKNode] {
         var allNodes = [SKNode]()
+        let spacing = mapType == .labirinth ? labirintSpacing : spacing
         
         for (row, val) in map.enumerated() {
             for (col, cell) in val.enumerated() {
@@ -43,8 +57,9 @@ class MapFactory {
                 let position = CGPoint(x: (spacing * col) + adjustmentX, y: (spacing * row) + adjustmentY)
                 node.position = position
                 allNodes.append(node)
-                if cell == .labirint {
-                    let player = PlayerNode(position: CGPoint(x: position.x, y: position.y - 100))
+                if cell == .labirint || cell == .start {
+                    let spacing = mapType == .labirinth ? 0 : 120
+                    let player = PlayerNode(position: CGPoint(x: position.x, y: position.y - CGFloat(spacing)))
                     allNodes.append(player)
                 }
             }

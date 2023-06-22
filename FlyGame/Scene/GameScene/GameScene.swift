@@ -33,6 +33,7 @@ final class GameScene: SKScene {
         viewModel.logic = self
         setupCamera()
         physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
     }
     
     func findClosestStar() -> StartNode? {
@@ -50,19 +51,29 @@ final class GameScene: SKScene {
         return closestStar
     }
     
-    func setUpPointer() {
-        guard let star = findClosestStar() else { return pointer.isHidden = true }
-        if cameraNode.isNodeInCamera(node: star) {
+    func pointerConfig(node: SKNode) {
+        if cameraNode.isNodeInCamera(node: node) {
             pointer.isHidden = true
         }
         else {
             pointer.isHidden = false
-            pointer.pointTowards(center: cameraNode.position, nodePosition: star.position, sceneSize: self.size)
+            pointer.pointTowards(center: cameraNode.position, nodePosition: node.position, sceneSize: self.size)
+        }
+    }
+    
+    func setUpPointer() {
+        if viewModel.gameState != .lookingForLabirinth {
+            guard let star = findClosestStar() else { return }
+            pointerConfig(node: star)
+        }
+        else {
+            guard let labirinth = self.childNode(withName: "Labirinth") else { return }
+            pointerConfig(node: labirinth)
         }
     }
     
     func setupMap() {
-        let nodes = mapFactory.setupMap(map: viewModel.getMap())
+        let nodes = mapFactory.setupMap(map: viewModel.getMap(), mapType: .starCollecting)
         
         for node in nodes {
             self.addChild(node)

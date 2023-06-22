@@ -9,6 +9,14 @@ import Foundation
 
 extension GameScene : GameLogicService {
     
+    func pause() {
+        self.isPaused = true
+    }
+    
+    func unpause() {
+        self.isPaused = false
+    }
+    
     func shoot() {
         let bullet = player.shoot()
         self.addChild(bullet)

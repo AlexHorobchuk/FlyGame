@@ -9,13 +9,14 @@ import SpriteKit
 
 final class LabirinthNode: SKSpriteNode {
     
-    var sideLength: CGFloat = 200
+    var sideLength: CGFloat = 100
     var isMoving = false
     
     init() {
         let texture = SKTexture(image: UIImage(systemName: "house.fill")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: sideLength, height: sideLength))
         self.position = position
+        self.name = "Labirinth"
         setUpNode()
     }
     

@@ -9,23 +9,26 @@ import SwiftUI
 
 final class GameVM: ObservableObject {
     
-    @Published var health: Int
+    @Published var health = 100
+    @Published var isShowingLabirinth = false
+    @Published var gameState: GameState
+    @Published var alert: AlertItem?
     @Published var collectedStars: Int
     @Published var bullets: Int
     
     var starsQuontity: Int
-    var mapGenerator: MapGenerator
+    var mapGenerator = MapGenerator()
+    var mazeGenerator = MazeGenerator()
     var logic: GameLogicService?
     
     init (points: Int) {
         self.starsQuontity = points
         self.collectedStars = 0
         self.bullets = points * 2
-        self.health = 100
-        self.mapGenerator = MapGenerator()
+        self.gameState = .starCollection
     }
     
-    func getMap() -> [[MapCel]] {
+    func getMap() -> [[MapCell]] {
         return mapGenerator.makeMap(starsQuantity: starsQuontity)
     }
     
@@ -38,13 +41,19 @@ final class GameVM: ObservableObject {
     
     func gotStar() {
         collectedStars += 1
+        if collectedStars == starsQuontity {
+            gameState = .lookingForLabirinth
+        }
     }
     
     func hitLabirint() {
+        guard starsQuontity == collectedStars else { return alert = AlertConfirmation.notAllStarsCollected }
+        gameState = .labirinth
         
     }
     
     func playerAttacked() {
+        guard health > 0 else { return }
         withAnimation(.easeInOut(duration: 1.0)) {
             health -= 10
         }

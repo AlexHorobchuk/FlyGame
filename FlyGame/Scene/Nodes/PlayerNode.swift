@@ -11,7 +11,6 @@ final class PlayerNode: SKSpriteNode {
     
     var radius: CGFloat = 30
     var angle: CGFloat = 0
-    var isMoving = false
     
     init(position: CGPoint) {
         let texture = SKTexture(image: UIImage(systemName: "face.smiling.inverse")!)
@@ -29,43 +28,34 @@ final class PlayerNode: SKSpriteNode {
         self.zPosition = 3
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = PhysicCategory.player
         self.physicsBody?.collisionBitMask = PhysicCategory.labyrinth | PhysicCategory.boundry
         self.physicsBody?.contactTestBitMask = PhysicCategory.obstacle | PhysicCategory.labyrinth | PhysicCategory.star
     }
     
     private func move(x: CGFloat, y: CGFloat) {
-        self.removeAllActions()
-        let moveAction = SKAction.move(by: CGVector(dx: x * 8, dy: -y * 8), duration: 1)
-        let continuousMove = SKAction.repeatForever(moveAction)
-        self.run(continuousMove)
-    }
-    
-    private func stayOnSport() {
-        self.removeAllActions()
-        isMoving = false
+        self.physicsBody?.applyImpulse(CGVector(dx: x * 0.05, dy: -y * 0.08))
     }
     
     func moveWithDirection(x: CGFloat, y: CGFloat) {
-        guard x != 0 && y != 0 else { return stayOnSport() }
+        guard x != 0 && y != 0 else { return }
         let newAngle = atan2(y, x)
-         
-        if !isMoving {
-            isMoving = true
-            move(x: x, y: y)
-            angle = newAngle
-        }
-        else {
-            if abs(newAngle - angle) >= 0.3 {
-                move(x: x, y: y)
-                angle = newAngle
-            }
-        }
+        move(x: x, y: y)
+        angle = newAngle
     }
     
     func attacked() {
+        self.removeAllActions()
         
+        let showDuration = 0.1
+        let hideAction = SKAction.run { self.isHidden = true }
+        let waitAction = SKAction.wait(forDuration: 0.1)
+        let showAction = SKAction.run { self.isHidden = false}
+        
+        let toggleAction = SKAction.sequence([waitAction, hideAction, waitAction, showAction])
+        let repeatAction = SKAction.repeat(toggleAction, count: 3)
+        
+        self.run(repeatAction)
     }
     
     func shoot() -> BulletNode {

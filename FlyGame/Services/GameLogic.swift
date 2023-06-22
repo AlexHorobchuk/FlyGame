@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol GameLogicService: AnyObject, MoverService, ShootinService {}
+protocol GameLogicService: AnyObject, MoverService, ShootinService, PauseService {}
