@@ -25,7 +25,7 @@ final class GameVM: ObservableObject {
         self.starsQuontity = points
         self.collectedStars = 0
         self.bullets = points * 2
-        self.gameState = .starCollection
+        self.gameState = .labirinth
     }
     
     func getMap() -> [[MapCell]] {

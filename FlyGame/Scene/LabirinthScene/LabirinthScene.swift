@@ -27,31 +27,17 @@ final class LabirinthScene: SKScene {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         backgroundColor = SKColor(.white)
         
+        setupMap()
+        player = getPlayer()
+        viewModel.logic = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
-    }
-    
-    func findClosestStar() -> StartNode? {
-        let stars = self.children.compactMap { $0 as? StartNode }
-        var closestStar: StartNode?
-        var closestDistance: CGFloat = CGFloat.greatestFiniteMagnitude
-        
-        for star in stars {
-            let distance = star.position.distance(point: player.position)
-            if distance < closestDistance {
-                closestDistance = distance
-                closestStar = star
-            }
-        }
-        return closestStar
+        setupCamera()
     }
     
     func setupMap() {
-        let nodes = mapFactory.setupMap(map: viewModel.getMap(), mapType: .labirinth)
-        
+        let nodes = mapFactory.setupMap(map: viewModel.mazeGenerator.generateMaze() , mapType: .labirinth)
         for node in nodes {
             self.addChild(node)
-            guard let star = node as? StartNode else { continue }
-            star.setParticle(target: self)
         }
     }
     

@@ -12,10 +12,9 @@ final class PlayerNode: SKSpriteNode {
     var radius: CGFloat = 30
     var angle: CGFloat = 0
     
-    init(position: CGPoint) {
+    init() {
         let texture = SKTexture(image: UIImage(systemName: "face.smiling.inverse")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
-        self.position = position
         setUpNode()
     }
     

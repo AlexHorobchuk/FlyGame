@@ -25,7 +25,7 @@ class MapFactory {
         case .labirint:
             return LabirinthNode()
         case .start:
-            return nil
+            return PlayerNode()
         case .road:
             return nil
         case .wall:
@@ -51,22 +51,24 @@ class MapFactory {
             for (col, cell) in val.enumerated() {
                 guard let node = createNode(cell: cell) else { continue }
                 
-                let adjustmentX = Int.random(in: -100...100)
-                let adjustmentY = Int.random(in: -100...100)
+                let adjustmentX = mapType == .labirinth ? 0 : Int.random(in: -100...100)
+                let adjustmentY = mapType == .labirinth ? 0 : Int.random(in: -100...100)
                 
                 let position = CGPoint(x: (spacing * col) + adjustmentX, y: (spacing * row) + adjustmentY)
                 node.position = position
                 allNodes.append(node)
-                if cell == .labirint || cell == .start {
-                    let spacing = mapType == .labirinth ? 0 : 120
-                    let player = PlayerNode(position: CGPoint(x: position.x, y: position.y - CGFloat(spacing)))
+                if cell == .labirint {
+                    let spacing = 120
+                    let player = PlayerNode()
+                    player.position = CGPoint(x: position.x, y: position.y - CGFloat(spacing))
                     allNodes.append(player)
                 }
             }
         }
-        
-        let boundryNode = getBoundary(map: map)
-        allNodes.append(boundryNode)
+        if mapType == .starCollecting {
+            let boundryNode = getBoundary(map: map)
+            allNodes.append(boundryNode)
+        }
         return allNodes
     }
 }

@@ -20,15 +20,15 @@ class MazeGenerator {
 
 
     init() {
-        self.width = 18
-        self.height = 18
+        self.width = 30
+        self.height = 30
         self.startX = 0
         self.startY = 0
         self.maze = Array(repeating: Array(repeating: .wall, count: width), count: height)
         self.visited = Array(repeating: Array(repeating: false, count: width), count: height)
     }
 
-    private func generateMaze() -> [[MapCell]] {
+    func generateMaze() -> [[MapCell]] {
         visitCell(x: startX, y: startY)
         carvePath(x: startX, y: startY)
         placeEndPoint()

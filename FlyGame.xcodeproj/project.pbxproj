@@ -47,6 +47,7 @@
 		B00332A72A44270E00BD0AAB /* MazeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332A62A44270E00BD0AAB /* MazeGenerator.swift */; };
 		B00332A92A44327300BD0AAB /* WallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332A82A44327300BD0AAB /* WallNode.swift */; };
 		B00332AB2A4432B500BD0AAB /* TrophyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332AA2A4432B500BD0AAB /* TrophyNode.swift */; };
+		B00332AD2A44412600BD0AAB /* LabirinthLogicEctension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */; };
 		B0E6D64C2A3FE7AC00531D49 /* FlyGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */; };
 		B0E6D64E2A3FE7AC00531D49 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */; };
 		B0E6D6502A3FE7AE00531D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E6D64F2A3FE7AE00531D49 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		B00332A62A44270E00BD0AAB /* MazeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeGenerator.swift; sourceTree = "<group>"; };
 		B00332A82A44327300BD0AAB /* WallNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallNode.swift; sourceTree = "<group>"; };
 		B00332AA2A4432B500BD0AAB /* TrophyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyNode.swift; sourceTree = "<group>"; };
+		B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabirinthLogicEctension.swift; sourceTree = "<group>"; };
 		B0E6D6482A3FE7AC00531D49 /* FlyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyGameApp.swift; sourceTree = "<group>"; };
 		B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				B00332A02A440FD800BD0AAB /* LabirinthScene.swift */,
 				B00332A42A441D2B00BD0AAB /* LabirinthSceneCoordinator.swift */,
+				B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */,
 			);
 			path = LabirinthScene;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00332AD2A44412600BD0AAB /* LabirinthLogicEctension.swift in Sources */,
 				B00332592A400EED00BD0AAB /* MoverService.swift in Sources */,
 				B003323F2A3FEAC100BD0AAB /* GameSceneCoordinator.swift in Sources */,
 				B00332A12A440FD800BD0AAB /* LabirinthScene.swift in Sources */,
