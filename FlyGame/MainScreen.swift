@@ -40,6 +40,14 @@ struct MainScreen: View {
                 .clearModalBackground()
                 .onAppear { gameVM.logic?.pause() }
         }
+        .fullScreenCover(isPresented: $gameVM.isShowingLabirinth) {
+            PreLabirinthView(maze: gameVM.getMap(type: .labirinth),
+                             correctmaze: gameVM.mazeGenerator.findPathFromStartToFinish(),
+                             action: {
+                gameVM.isShowingLabirinth = false
+                gameVM.gameState = .labirinth
+            })
+        }
     }
 }
 

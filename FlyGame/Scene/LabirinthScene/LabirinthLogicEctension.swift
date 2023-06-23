@@ -8,7 +8,10 @@
 import Foundation
 
 extension LabirinthScene: GameLogicService {
+    
     func shoot() {
+        let bullet = player.shoot()
+        self.addChild(bullet)
     }
     
     func pause() {

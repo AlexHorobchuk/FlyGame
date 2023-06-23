@@ -28,5 +28,8 @@ final class TrophyNode: SKSpriteNode {
         
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: side, height: side))
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.categoryBitMask = PhysicCategory.star
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = PhysicCategory.player
     }
 }

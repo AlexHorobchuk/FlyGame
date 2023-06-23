@@ -27,11 +27,13 @@ struct AlertView: View {
                     .font(.system(size: 22, weight: .bold))
                     .lineLimit(4)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                 
                 alertItem.message
                     .font(.system(size: 22, weight: .semibold))
                     .lineLimit(4)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                 
                 Spacer()
                 

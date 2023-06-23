@@ -73,7 +73,7 @@ final class GameScene: SKScene {
     }
     
     func setupMap() {
-        let nodes = mapFactory.setupMap(map: viewModel.getMap(), mapType: .starCollecting)
+        let nodes = mapFactory.setupMap(map: viewModel.getMap(type: .starCollecting), mapType: .starCollecting)
         
         for node in nodes {
             self.addChild(node)

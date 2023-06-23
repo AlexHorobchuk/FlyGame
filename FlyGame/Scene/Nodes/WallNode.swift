@@ -13,7 +13,6 @@ final class WallNode: SKSpriteNode {
     var angle: CGFloat = 0
     
     init() {
-        let color = UIColor.black
         let texture = SKTexture(image: UIImage(systemName: "square")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: side, height: side))
         self.position = position
@@ -29,5 +28,8 @@ final class WallNode: SKSpriteNode {
         
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: side, height: side))
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.categoryBitMask = PhysicCategory.boundry
+        self.physicsBody?.collisionBitMask = PhysicCategory.player | PhysicCategory.obstacle
+        self.physicsBody?.contactTestBitMask = PhysicCategory.bullet
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GameState {
+enum GameState{
     
     case preGame, starCollection, lookingForLabirinth, labirinth, gameOver
 }

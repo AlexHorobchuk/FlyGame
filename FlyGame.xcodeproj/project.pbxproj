@@ -48,6 +48,10 @@
 		B00332A92A44327300BD0AAB /* WallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332A82A44327300BD0AAB /* WallNode.swift */; };
 		B00332AB2A4432B500BD0AAB /* TrophyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332AA2A4432B500BD0AAB /* TrophyNode.swift */; };
 		B00332AD2A44412600BD0AAB /* LabirinthLogicEctension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */; };
+		B00332AF2A4536E100BD0AAB /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332AE2A4536E100BD0AAB /* EnemyNode.swift */; };
+		B00332B12A456F7E00BD0AAB /* LabirinthContactExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332B02A456F7E00BD0AAB /* LabirinthContactExtension.swift */; };
+		B00332B52A45744A00BD0AAB /* MazeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332B42A45744A00BD0AAB /* MazeMapView.swift */; };
+		B00332B72A457DDA00BD0AAB /* PreLabirinthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332B62A457DDA00BD0AAB /* PreLabirinthView.swift */; };
 		B0E6D64C2A3FE7AC00531D49 /* FlyGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */; };
 		B0E6D64E2A3FE7AC00531D49 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */; };
 		B0E6D6502A3FE7AE00531D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E6D64F2A3FE7AE00531D49 /* Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		B00332A82A44327300BD0AAB /* WallNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallNode.swift; sourceTree = "<group>"; };
 		B00332AA2A4432B500BD0AAB /* TrophyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyNode.swift; sourceTree = "<group>"; };
 		B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabirinthLogicEctension.swift; sourceTree = "<group>"; };
+		B00332AE2A4536E100BD0AAB /* EnemyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
+		B00332B02A456F7E00BD0AAB /* LabirinthContactExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabirinthContactExtension.swift; sourceTree = "<group>"; };
+		B00332B42A45744A00BD0AAB /* MazeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeMapView.swift; sourceTree = "<group>"; };
+		B00332B62A457DDA00BD0AAB /* PreLabirinthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLabirinthView.swift; sourceTree = "<group>"; };
 		B0E6D6482A3FE7AC00531D49 /* FlyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyGameApp.swift; sourceTree = "<group>"; };
 		B0E6D64D2A3FE7AC00531D49 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 				B00332802A42BFBA00BD0AAB /* LabirinthNode.swift */,
 				B00332A82A44327300BD0AAB /* WallNode.swift */,
 				B00332AA2A4432B500BD0AAB /* TrophyNode.swift */,
+				B00332AE2A4536E100BD0AAB /* EnemyNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -193,6 +202,8 @@
 				B00332742A42A0F800BD0AAB /* StarsIcon.swift */,
 				B00332992A44040600BD0AAB /* AlertView.swift */,
 				B003329D2A440AAC00BD0AAB /* GameView.swift */,
+				B00332B42A45744A00BD0AAB /* MazeMapView.swift */,
+				B00332B62A457DDA00BD0AAB /* PreLabirinthView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 				B00332A02A440FD800BD0AAB /* LabirinthScene.swift */,
 				B00332A42A441D2B00BD0AAB /* LabirinthSceneCoordinator.swift */,
 				B00332AC2A44412600BD0AAB /* LabirinthLogicEctension.swift */,
+				B00332B02A456F7E00BD0AAB /* LabirinthContactExtension.swift */,
 			);
 			path = LabirinthScene;
 			sourceTree = "<group>";
@@ -367,9 +379,11 @@
 				B00332732A42A0D400BD0AAB /* BulletIcon.swift in Sources */,
 				B00332712A42924B00BD0AAB /* CGSizeExtension.swift in Sources */,
 				B003324A2A3FEEDD00BD0AAB /* ObstacleNode.swift in Sources */,
+				B00332B72A457DDA00BD0AAB /* PreLabirinthView.swift in Sources */,
 				B00332912A43F85E00BD0AAB /* AlertItem.swift in Sources */,
 				B003329C2A44050D00BD0AAB /* ViewExtension.swift in Sources */,
 				B003327B2A42A8C100BD0AAB /* BulletNode.swift in Sources */,
+				B00332B12A456F7E00BD0AAB /* LabirinthContactExtension.swift in Sources */,
 				B00332812A42BFBA00BD0AAB /* LabirinthNode.swift in Sources */,
 				B003327D2A42BA5900BD0AAB /* SceneContactExtension.swift in Sources */,
 				B00332A92A44327300BD0AAB /* WallNode.swift in Sources */,
@@ -382,6 +396,7 @@
 				B003326F2A428CDD00BD0AAB /* HelthBar.swift in Sources */,
 				B00332A72A44270E00BD0AAB /* MazeGenerator.swift in Sources */,
 				B0E6D64E2A3FE7AC00531D49 /* MainScreen.swift in Sources */,
+				B00332AF2A4536E100BD0AAB /* EnemyNode.swift in Sources */,
 				B00332422A3FEAE000BD0AAB /* GameVM.swift in Sources */,
 				B003325D2A402A8100BD0AAB /* ShootButton.swift in Sources */,
 				B00332672A41628600BD0AAB /* CGPointExtension.swift in Sources */,
@@ -392,6 +407,7 @@
 				B00332752A42A0F800BD0AAB /* StarsIcon.swift in Sources */,
 				B00332772A42A73D00BD0AAB /* GameLogic.swift in Sources */,
 				B003324E2A3FF4F300BD0AAB /* StarNode.swift in Sources */,
+				B00332B52A45744A00BD0AAB /* MazeMapView.swift in Sources */,
 				B00332AB2A4432B500BD0AAB /* TrophyNode.swift in Sources */,
 				B00332462A3FEC0100BD0AAB /* GameVMExtension.swift in Sources */,
 				B003324C2A3FF4D800BD0AAB /* PlayerNode.swift in Sources */,

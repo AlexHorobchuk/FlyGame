@@ -26,16 +26,19 @@ final class LabirinthScene: SKScene {
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         backgroundColor = SKColor(.white)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
+        physicsWorld.contactDelegate = self
         
         setupMap()
         player = getPlayer()
         viewModel.logic = self
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         setupCamera()
     }
     
     func setupMap() {
-        let nodes = mapFactory.setupMap(map: viewModel.mazeGenerator.generateMaze() , mapType: .labirinth)
+        let nodes = mapFactory.setupMap(map: viewModel.getMap(type: .labirinth),
+                                        mapType: .labirinth,
+                                        rightPath: viewModel.mazeGenerator.findPathFromStartToFinish())
         for node in nodes {
             self.addChild(node)
         }
@@ -49,7 +52,21 @@ final class LabirinthScene: SKScene {
     func setupCamera() {
         self.addChild(cameraNode)
         self.camera = cameraNode
+        cameraNode.setScale(0.8)
         let cameraConstraint = SKConstraint.distance(SKRange(constantValue: 0), to: player)
         cameraNode.constraints = [cameraConstraint]
+    }
+    
+    func checkEnemies() {
+        let enemies = self.children.compactMap { $0 as? EnemyNode }
+        for node in enemies {
+            if cameraNode.isEnemyInCamera(node: node) {
+                node.follow(playerNode: player)
+            }
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        checkEnemies()
     }
 }

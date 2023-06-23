@@ -19,14 +19,14 @@ struct GameView: View {
                 
                 Spacer()
                 
-                if gameVM.gameState == .starCollection {
                     VStack(alignment: .leading, spacing: 5) {
-                        StarsIcon(allStars: gameVM.starsQuontity,
-                                  collectedStars: gameVM.collectedStars)
+                        if gameVM.gameState == .starCollection {
+                            StarsIcon(allStars: gameVM.starsQuontity,
+                                      collectedStars: gameVM.collectedStars)
+                        }
                         
                         BulletIcon(bullets: gameVM.bullets)
                     }
-                }
             }
             .padding(10)
             

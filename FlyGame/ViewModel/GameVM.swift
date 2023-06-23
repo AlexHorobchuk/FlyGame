@@ -25,11 +25,15 @@ final class GameVM: ObservableObject {
         self.starsQuontity = points
         self.collectedStars = 0
         self.bullets = points * 2
-        self.gameState = .labirinth
+        self.gameState = .starCollection
     }
     
-    func getMap() -> [[MapCell]] {
-        return mapGenerator.makeMap(starsQuantity: starsQuontity)
+    func getMap(type: MapType) -> [[MapCell]] {
+        if type == .starCollecting {
+            return mapGenerator.makeMap(starsQuantity: starsQuontity)
+        } else {
+            return mazeGenerator.maze
+        }
     }
     
     func shoot() {
@@ -48,8 +52,7 @@ final class GameVM: ObservableObject {
     
     func hitLabirint() {
         guard starsQuontity == collectedStars else { return alert = AlertConfirmation.notAllStarsCollected }
-        gameState = .labirinth
-        
+        isShowingLabirinth = true
     }
     
     func playerAttacked() {

@@ -29,7 +29,7 @@ final class BulletNode: SKSpriteNode {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = PhysicCategory.bullet
         self.physicsBody?.collisionBitMask = 0
-        self.physicsBody?.contactTestBitMask = PhysicCategory.obstacle
+        self.physicsBody?.contactTestBitMask = PhysicCategory.obstacle | PhysicCategory.boundry
         self.physicsBody?.usesPreciseCollisionDetection = true
     }
     

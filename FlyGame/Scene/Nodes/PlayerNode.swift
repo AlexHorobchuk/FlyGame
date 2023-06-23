@@ -46,7 +46,6 @@ final class PlayerNode: SKSpriteNode {
     func attacked() {
         self.removeAllActions()
         
-        let showDuration = 0.1
         let hideAction = SKAction.run { self.isHidden = true }
         let waitAction = SKAction.wait(forDuration: 0.1)
         let showAction = SKAction.run { self.isHidden = false}

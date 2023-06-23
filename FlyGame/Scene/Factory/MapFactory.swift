@@ -7,11 +7,11 @@
 
 import SpriteKit
 
+enum MapType {
+    case labirinth, starCollecting
+}
+
 class MapFactory {
-    
-    enum MapType {
-        case labirinth, starCollecting
-    }
     
     private let spacing = 700
     private let labirintSpacing = 100
@@ -27,7 +27,7 @@ class MapFactory {
         case .start:
             return PlayerNode()
         case .road:
-            return nil
+            return EnemyNode()
         case .wall:
             return WallNode()
         case .end:
@@ -43,10 +43,16 @@ class MapFactory {
         return boundaryNode
     }
     
-    func setupMap(map: [[MapCell]], mapType: MapType) -> [SKNode] {
+    private func setEnemy(row: Int, col: Int, rightPath: [(Int, Int)]) -> Bool {
+        guard !rightPath.contains(where: { $0 == (row, col) }) else { return false }
+        let random = Int.random(in: 0...5)
+        guard random == 0 else { return false }
+        return true
+    }
+    
+    func setupMap(map: [[MapCell]], mapType: MapType, rightPath: [(Int, Int)]? = nil) -> [SKNode] {
         var allNodes = [SKNode]()
         let spacing = mapType == .labirinth ? labirintSpacing : spacing
-        
         for (row, val) in map.enumerated() {
             for (col, cell) in val.enumerated() {
                 guard let node = createNode(cell: cell) else { continue }
@@ -56,7 +62,14 @@ class MapFactory {
                 
                 let position = CGPoint(x: (spacing * col) + adjustmentX, y: (spacing * row) + adjustmentY)
                 node.position = position
-                allNodes.append(node)
+                if node is EnemyNode {
+                    guard let rightPath = rightPath, setEnemy(row: row, col: col, rightPath: rightPath) else { continue }
+                    allNodes.append(node)
+                }
+                else {
+                    allNodes.append(node)
+                }
+                
                 if cell == .labirint {
                     let spacing = 120
                     let player = PlayerNode()
