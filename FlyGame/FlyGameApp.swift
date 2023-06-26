@@ -11,7 +11,7 @@ import SwiftUI
 struct FlyGameApp: App {
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            GameScreen()
         }
     }
 }

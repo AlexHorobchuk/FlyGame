@@ -44,6 +44,7 @@ final class GameVM: ObservableObject {
     }
     
     func gotStar() {
+        guard health > 0 else { return }
         collectedStars += 1
         if collectedStars == starsQuontity {
             gameState = .lookingForLabirinth
@@ -52,13 +53,18 @@ final class GameVM: ObservableObject {
     
     func hitLabirint() {
         guard starsQuontity == collectedStars else { return alert = AlertConfirmation.notAllStarsCollected }
-        isShowingLabirinth = true
+        withAnimation(.easeInOut(duration: 1.0)) { 
+            isShowingLabirinth = true
+        }
     }
     
     func playerAttacked() {
         guard health > 0 else { return }
         withAnimation(.easeInOut(duration: 1.0)) {
             health -= 10
+            if health <= 0 {
+                gameState = .gameOver
+            }
         }
     }
 }
