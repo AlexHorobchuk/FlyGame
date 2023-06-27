@@ -9,7 +9,12 @@ import SwiftUI
 
 struct GameScreen: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @StateObject var gameVM = GameVM(points: 1)
+    @StateObject var progress = ProgressVM()
+    
+    @State var isShowingSettings = false
     
     var body: some View {
         
@@ -37,11 +42,16 @@ struct GameScreen: View {
             }
             
             else if gameVM.gameState == .gameOver {
-                GameOverView()
+                
+                GameOverView(didWin: gameVM.didWin(),
+                             action: { presentationMode.wrappedValue.dismiss() },
+                             progress: progress)
+                    .transition(.opacity)
             }
             
             else {
                 GameRulesView()
+                    .transition(.opacity)
             }
             
             
@@ -62,6 +72,37 @@ struct GameScreen: View {
                 gameVM.isShowingLabirinth = false
                 gameVM.gameState = .labirinth
             })
+        }
+        
+        .fullScreenCover(isPresented: $isShowingSettings) {
+            SettingsScreen(isShowingSettings: $isShowingSettings)
+                .onAppear { gameVM.logic?.pause() }
+                .onDisappear { gameVM.logic?.unpause() }
+            }
+        
+        .navigationBarBackButtonHidden(true)
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    SoundManager.shared.playSound(for: .click)
+                    isShowingSettings = true
+                }) {
+                    SettingsButton()
+                }
+                .offset(y: 5)
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    SoundManager.shared.playSound(for: .click)
+                    gameVM.alert = AlertConfirmation.goBack
+                    gameVM.alert?.closeAction = { presentationMode.wrappedValue.dismiss() }
+                }) {
+                    CloseScreenButton()
+                }
+                .offset(y: 5)
+            }
         }
     }
 }

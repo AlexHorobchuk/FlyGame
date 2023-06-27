@@ -21,7 +21,9 @@ class SoundManager: NSObject, AVAudioPlayerDelegate {
         case won = "Win",
         loose = "Defeat",
         click = "Click",
-        hitStation = "Pop"
+        hit = "Hit",
+        trophy = "Trophy",
+        shot = "Shot"
     }
       
     func playSound(for name: Sounds) {

@@ -39,12 +39,16 @@ extension GameScene: SKPhysicsContactDelegate {
         switch type {
             
         case .playerObstacle:
+            SoundManager.shared.playSound(for: .hit)
+            VibrationManager.shared.vibrate(for: .medium)
             let obstacle = bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB
             obstacle.removeFromParent()
             player.attacked()
             viewModel.playerAttacked()
             
         case .playerStar:
+            SoundManager.shared.playSound(for: .trophy)
+            VibrationManager.shared.vibrate(for: .light)
             let star = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.star ? bodyA : bodyB) as? StartNode
             star?.captured()
             viewModel.gotStar()
@@ -53,8 +57,10 @@ extension GameScene: SKPhysicsContactDelegate {
             viewModel.hitLabirint()
             
         case .bulletObstacle:
-            bodyA.removeFromParent()
-            bodyB.removeFromParent()
+            let bullet = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.bullet ? bodyA : bodyB)
+            let obstacle = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB) as? ObstacleNode
+            bullet.removeFromParent()
+            obstacle?.gotShot()
         case .unknown:
             return
         }

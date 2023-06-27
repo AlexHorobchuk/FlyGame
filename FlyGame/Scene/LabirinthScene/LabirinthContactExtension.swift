@@ -39,19 +39,25 @@ extension LabirinthScene: SKPhysicsContactDelegate {
         switch type {
             
         case .playerObstacle:
+            VibrationManager.shared.vibrate(for: .medium)
+            SoundManager.shared.playSound(for: .hit)
             let obstacle = bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB
             obstacle.removeFromParent()
             player.attacked()
             viewModel.playerAttacked()
             
         case .playerTrophy:
+            VibrationManager.shared.vibrate(for: .light)
+            SoundManager.shared.playSound(for: .trophy)
             let trophy = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.star ? bodyA : bodyB) as? TrophyNode
             trophy?.removeFromParent()
-            viewModel.gotStar()
+            viewModel.gotTrophy()
             
         case .bulletObstacle:
-            bodyA.removeFromParent()
-            bodyB.removeFromParent()
+            let bullet = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.bullet ? bodyA : bodyB)
+            let enemy = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB) as? EnemyNode
+            bullet.removeFromParent()
+            enemy?.gotShot()
             
         case .bulletBoundry:
             let bullet = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.bullet ? bodyA : bodyB)

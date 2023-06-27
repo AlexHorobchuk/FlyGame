@@ -11,7 +11,10 @@ import SwiftUI
 struct FlyGameApp: App {
     var body: some Scene {
         WindowGroup {
-            GameScreen()
+            StartScreen()
+                .onAppear {
+                    MusicManager.shared.playBackgroundMusic()
+                }
         }
     }
 }

@@ -37,18 +37,42 @@ struct AlertView: View {
                 
                 Spacer()
                 
-                Button(action: { action?() }) {
-                alertItem.dismissButton
-                        .foregroundColor(.white)
-                        .font(.system(size: 22, weight: .bold))
-                        .frame(width: 120, height: 50)
+                HStack {
+                    if alertItem.closeAction != nil {
+                        Button(action: {
+                            SoundManager.shared.playSound(for: .click)
+                            alertItem.closeAction?()
+                            action?()
+                        }) {
+                            Text("Yes")
+                                .foregroundColor(.white)
+                                .font(.system(size: 22, weight: .bold))
+                                .frame(width: 120, height: 50)
+                        }
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(.red))
+                        
+                        Spacer()
+                    }
+                    
+                    Button(action: {
+                        SoundManager.shared.playSound(for: .click)
+                        action?()
+                    }) {
+                        alertItem.dismissButton
+                            .foregroundColor(.white)
+                            .font(.system(size: 22, weight: .bold))
+                            .frame(width: 120, height: 50)
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(.red))
                 }
-                .background(
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(.red))
                 
                 Spacer()
             }
+            .padding()
             .frame(maxWidth: UIScreen.main.bounds.width * 0.5,
                    maxHeight: UIScreen.main.bounds.height * 0.75)
             .background(

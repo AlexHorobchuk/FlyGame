@@ -47,4 +47,14 @@ final class EnemyNode: SKSpriteNode {
             self.run(sequenceAction)
         }
     }
+    
+    func gotShot() {
+        self.physicsBody = nil
+        let scaleAction = SKAction.scale(to: 0, duration: 1)
+        let fadeAction = SKAction.fadeOut(withDuration: 1)
+        let removeAction = SKAction.run { self.removeFromParent() }
+        let groupAction = SKAction.group([scaleAction, fadeAction])
+        
+        self.run(SKAction.sequence([groupAction, removeAction]))
+    }
 }

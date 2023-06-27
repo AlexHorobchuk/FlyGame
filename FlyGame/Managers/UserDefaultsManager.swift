@@ -16,6 +16,8 @@ class UserDefaultsManager {
     private let soundKey = "sound"
     private let money = "money"
     private let bonusRecieved = "bonus"
+    private let shopItemKey = "item"
+    private let currentBackgroundKey = "background"
     
     private init() {
         UserDefaults.standard.register(defaults: [
@@ -23,8 +25,27 @@ class UserDefaultsManager {
             vibrationKey : true,
             soundKey : true,
             bonusRecieved : false,
-            money : 0
+            money : 0,
+            shopItemKey : [String](),
+            currentBackgroundKey : ""
+            
         ])
+    }
+    
+    var currentBackground: String {
+        get { UserDefaults.standard.string(forKey: currentBackgroundKey) ?? "" }
+        set { UserDefaults.standard.set(newValue, forKey: currentBackgroundKey) }
+    }
+    
+    var shopItems: [String] {
+        get {
+            return UserDefaults.standard.stringArray(forKey: "shopItem") ?? []
+        }
+        set {
+            var items = shopItems
+            items.append(contentsOf: newValue)
+            UserDefaults.standard.set(items, forKey: "shopItem")
+        }
     }
     
     var moneyCount: Int {

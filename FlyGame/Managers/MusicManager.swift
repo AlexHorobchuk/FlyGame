@@ -19,7 +19,7 @@ class MusicManager {
     func playBackgroundMusic() {
         let isMusicOn = UserDefaultsManager.shared.isMusicEnabled
         if isMusicOn {
-            if let url = Bundle.main.url(forResource: "GameMusic", withExtension: "mp3") {
+            if let url = Bundle.main.url(forResource: "Music", withExtension: "mp3") {
                 do {
                     player = try AVAudioPlayer(contentsOf: url)
                     player?.numberOfLoops = -1

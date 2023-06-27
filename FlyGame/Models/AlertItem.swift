@@ -13,6 +13,7 @@ struct AlertItem: Identifiable {
     let title: Text
     let message: Text
     let dismissButton: Text
+    var closeAction: (()->())?
 }
 
 

@@ -65,6 +65,7 @@ final class PlayerNode: SKSpriteNode {
         bullet.position = bulletPosition
         
         bullet.shootInDirection(direction: angle)
+        SoundManager.shared.playSound(for: .shot)
         return bullet
     }
 }

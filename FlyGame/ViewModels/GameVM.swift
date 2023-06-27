@@ -43,11 +43,19 @@ final class GameVM: ObservableObject {
         }
     }
     
+    func gotTrophy() {
+        withAnimation(.easeInOut(duration: 1.0)) {
+            gameState = .gameOver
+        }
+    }
+    
     func gotStar() {
         guard health > 0 else { return }
         collectedStars += 1
         if collectedStars == starsQuontity {
-            gameState = .lookingForLabirinth
+            withAnimation(.easeInOut(duration: 1.0)) {
+                gameState = .lookingForLabirinth
+            }
         }
     }
     
@@ -66,5 +74,9 @@ final class GameVM: ObservableObject {
                 gameState = .gameOver
             }
         }
+    }
+    
+    func didWin() -> Bool {
+        gameState == .gameOver && health > 0
     }
 }
