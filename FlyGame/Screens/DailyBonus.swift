@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DailyBonus: View {
     
-    @StateObject var progress = ProgressVM()
+    @ObservedObject var progress : ProgressVM
     
     @Binding var isShowingBonus: Bool
     
