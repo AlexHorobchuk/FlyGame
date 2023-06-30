@@ -62,9 +62,8 @@
 		B00332CA2A49706100BD0AAB /* ProgressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332C92A49706100BD0AAB /* ProgressVM.swift */; };
 		B00332CD2A49778C00BD0AAB /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332CC2A49778C00BD0AAB /* StartScreen.swift */; };
 		B00332CF2A49779800BD0AAB /* ShopScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00332CE2A49779800BD0AAB /* ShopScreen.swift */; };
+		B024675E2A4E6DD700F84BAD /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024675D2A4E6DD700F84BAD /* ToggleButton.swift */; };
 		B06440492A4A7F5100456A76 /* DailyBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440482A4A7F5100456A76 /* DailyBonus.swift */; };
-		B064404B2A4A811000456A76 /* NewBonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064404A2A4A811000456A76 /* NewBonusView.swift */; };
-		B064404F2A4A821D00456A76 /* NoBonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064404E2A4A821D00456A76 /* NoBonusView.swift */; };
 		B06440522A4AAF5400456A76 /* CloseScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440512A4AAF5400456A76 /* CloseScreenButton.swift */; };
 		B06440552A4AB01F00456A76 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440542A4AB01F00456A76 /* SettingsButton.swift */; };
 		B06440582A4AB63700456A76 /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440572A4AB63700456A76 /* Click.mp3 */; };
@@ -75,6 +74,9 @@
 		B06440642A4AB86700456A76 /* Trophy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440632A4AB86700456A76 /* Trophy.mp3 */; };
 		B06440662A4ABBF200456A76 /* Hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440652A4ABBF200456A76 /* Hit.mp3 */; };
 		B06440682A4ABFAA00456A76 /* ShopingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440672A4ABFAA00456A76 /* ShopingItem.swift */; };
+		B064406B2A4D278200456A76 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064406A2A4D278200456A76 /* CustomView.swift */; };
+		B064406D2A4D27AB00456A76 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B064406C2A4D27AB00456A76 /* ImageGenerator.swift */; };
+		B064406F2A4D468900456A76 /* GlassAntiqua-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B064406E2A4D468900456A76 /* GlassAntiqua-Regular.ttf */; };
 		B0E6D64C2A3FE7AC00531D49 /* FlyGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */; };
 		B0E6D64E2A3FE7AC00531D49 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6D64D2A3FE7AC00531D49 /* GameScreen.swift */; };
 		B0E6D6502A3FE7AE00531D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E6D64F2A3FE7AE00531D49 /* Assets.xcassets */; };
@@ -86,7 +88,6 @@
 		B003323E2A3FEAC100BD0AAB /* GameSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneCoordinator.swift; sourceTree = "<group>"; };
 		B00332412A3FEAE000BD0AAB /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		B00332452A3FEC0100BD0AAB /* GameVMExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVMExtension.swift; sourceTree = "<group>"; };
-		B00332472A3FEDC600BD0AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B00332492A3FEEDD00BD0AAB /* ObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		B003324B2A3FF4D800BD0AAB /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		B003324D2A3FF4F300BD0AAB /* StarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarNode.swift; sourceTree = "<group>"; };
@@ -138,9 +139,8 @@
 		B00332C92A49706100BD0AAB /* ProgressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressVM.swift; sourceTree = "<group>"; };
 		B00332CC2A49778C00BD0AAB /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		B00332CE2A49779800BD0AAB /* ShopScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScreen.swift; sourceTree = "<group>"; };
+		B024675D2A4E6DD700F84BAD /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		B06440482A4A7F5100456A76 /* DailyBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBonus.swift; sourceTree = "<group>"; };
-		B064404A2A4A811000456A76 /* NewBonusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBonusView.swift; sourceTree = "<group>"; };
-		B064404E2A4A821D00456A76 /* NoBonusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBonusView.swift; sourceTree = "<group>"; };
 		B06440512A4AAF5400456A76 /* CloseScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseScreenButton.swift; sourceTree = "<group>"; };
 		B06440542A4AB01F00456A76 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		B06440572A4AB63700456A76 /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click.mp3; sourceTree = "<group>"; };
@@ -151,7 +151,11 @@
 		B06440632A4AB86700456A76 /* Trophy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Trophy.mp3; sourceTree = "<group>"; };
 		B06440652A4ABBF200456A76 /* Hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hit.mp3; sourceTree = "<group>"; };
 		B06440672A4ABFAA00456A76 /* ShopingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingItem.swift; sourceTree = "<group>"; };
-		B0E6D6482A3FE7AC00531D49 /* FlyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B06440692A4AD13700456A76 /* KingJohnie1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KingJohnie1-Info.plist"; sourceTree = "<group>"; };
+		B064406A2A4D278200456A76 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		B064406C2A4D27AB00456A76 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		B064406E2A4D468900456A76 /* GlassAntiqua-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GlassAntiqua-Regular.ttf"; sourceTree = "<group>"; };
+		B0E6D6482A3FE7AC00531D49 /* KingJohnie1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingJohnie1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyGameApp.swift; sourceTree = "<group>"; };
 		B0E6D64D2A3FE7AC00531D49 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		B0E6D64F2A3FE7AE00531D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			children = (
 				B00332822A42D31100BD0AAB /* Particles */,
 				B00332442A3FEBED00BD0AAB /* Extensions */,
+				B064406C2A4D27AB00456A76 /* ImageGenerator.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -245,7 +250,6 @@
 				B06440532A4AB00800456A76 /* Buttons */,
 				B06440502A4A8DAE00456A76 /* GameOverViews */,
 				B064404D2A4A818400456A76 /* GameViews */,
-				B064404C2A4A812A00456A76 /* DailyBonus */,
 				B00332992A44040600BD0AAB /* AlertView.swift */,
 			);
 			path = Views;
@@ -316,22 +320,13 @@
 		B00332CB2A49777500BD0AAB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B06440482A4A7F5100456A76 /* DailyBonus.swift */,
 				B00332CC2A49778C00BD0AAB /* StartScreen.swift */,
 				B0E6D64D2A3FE7AC00531D49 /* GameScreen.swift */,
 				B00332C72A49632500BD0AAB /* SettingsScreen.swift */,
 				B00332CE2A49779800BD0AAB /* ShopScreen.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		B064404C2A4A812A00456A76 /* DailyBonus */ = {
-			isa = PBXGroup;
-			children = (
-				B064404A2A4A811000456A76 /* NewBonusView.swift */,
-				B06440482A4A7F5100456A76 /* DailyBonus.swift */,
-				B064404E2A4A821D00456A76 /* NoBonusView.swift */,
-			);
-			path = DailyBonus;
 			sourceTree = "<group>";
 		};
 		B064404D2A4A818400456A76 /* GameViews */ = {
@@ -363,6 +358,8 @@
 			children = (
 				B06440512A4AAF5400456A76 /* CloseScreenButton.swift */,
 				B06440542A4AB01F00456A76 /* SettingsButton.swift */,
+				B064406A2A4D278200456A76 /* CustomView.swift */,
+				B024675D2A4E6DD700F84BAD /* ToggleButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -384,6 +381,8 @@
 		B0E6D63F2A3FE7AC00531D49 = {
 			isa = PBXGroup;
 			children = (
+				B06440692A4AD13700456A76 /* KingJohnie1-Info.plist */,
+				B064406E2A4D468900456A76 /* GlassAntiqua-Regular.ttf */,
 				B0E6D64A2A3FE7AC00531D49 /* FlyGame */,
 				B0E6D6492A3FE7AC00531D49 /* Products */,
 			);
@@ -392,7 +391,7 @@
 		B0E6D6492A3FE7AC00531D49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0E6D6482A3FE7AC00531D49 /* FlyGame.app */,
+				B0E6D6482A3FE7AC00531D49 /* KingJohnie1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -400,7 +399,6 @@
 		B0E6D64A2A3FE7AC00531D49 /* FlyGame */ = {
 			isa = PBXGroup;
 			children = (
-				B00332472A3FEDC600BD0AAB /* Info.plist */,
 				B0E6D64B2A3FE7AC00531D49 /* FlyGameApp.swift */,
 				B00332CB2A49777500BD0AAB /* Screens */,
 				B003325E2A41384400BD0AAB /* Models */,
@@ -428,9 +426,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0E6D6472A3FE7AC00531D49 /* FlyGame */ = {
+		B0E6D6472A3FE7AC00531D49 /* KingJohnie1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0E6D6562A3FE7AE00531D49 /* Build configuration list for PBXNativeTarget "FlyGame" */;
+			buildConfigurationList = B0E6D6562A3FE7AE00531D49 /* Build configuration list for PBXNativeTarget "KingJohnie1" */;
 			buildPhases = (
 				B0E6D6442A3FE7AC00531D49 /* Sources */,
 				B0E6D6452A3FE7AC00531D49 /* Frameworks */,
@@ -440,9 +438,9 @@
 			);
 			dependencies = (
 			);
-			name = FlyGame;
+			name = KingJohnie1;
 			productName = FlyGame;
-			productReference = B0E6D6482A3FE7AC00531D49 /* FlyGame.app */;
+			productReference = B0E6D6482A3FE7AC00531D49 /* KingJohnie1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -460,7 +458,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0E6D6432A3FE7AC00531D49 /* Build configuration list for PBXProject "FlyGame" */;
+			buildConfigurationList = B0E6D6432A3FE7AC00531D49 /* Build configuration list for PBXProject "KingJohnie1" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -473,7 +471,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0E6D6472A3FE7AC00531D49 /* FlyGame */,
+				B0E6D6472A3FE7AC00531D49 /* KingJohnie1 */,
 			);
 		};
 /* End PBXProject section */
@@ -487,6 +485,7 @@
 				B064405E2A4AB64E00456A76 /* Defeat.mp3 in Resources */,
 				B06440642A4AB86700456A76 /* Trophy.mp3 in Resources */,
 				B06440622A4AB84D00456A76 /* Shot.mp3 in Resources */,
+				B064406F2A4D468900456A76 /* GlassAntiqua-Regular.ttf in Resources */,
 				B00332942A43FD4900BD0AAB /* Fire.sks in Resources */,
 				B0E6D6532A3FE7AE00531D49 /* Preview Assets.xcassets in Resources */,
 				B00332952A43FD4900BD0AAB /* Assets.xcassets in Resources */,
@@ -531,7 +530,6 @@
 				B00332C02A495EBF00BD0AAB /* SoundManager.swift in Sources */,
 				B00332652A415A5C00BD0AAB /* BoundryNode.swift in Sources */,
 				B003325B2A40104300BD0AAB /* SceneLogicExtension.swift in Sources */,
-				B064404F2A4A821D00456A76 /* NoBonusView.swift in Sources */,
 				B00332792A42A75500BD0AAB /* ShootingService.swift in Sources */,
 				B00332C82A49632500BD0AAB /* SettingsScreen.swift in Sources */,
 				B003326F2A428CDD00BD0AAB /* HelthBar.swift in Sources */,
@@ -546,19 +544,21 @@
 				B06440682A4ABFAA00456A76 /* ShopingItem.swift in Sources */,
 				B06440492A4A7F5100456A76 /* DailyBonus.swift in Sources */,
 				B003329E2A440AAC00BD0AAB /* GameView.swift in Sources */,
+				B024675E2A4E6DD700F84BAD /* ToggleButton.swift in Sources */,
 				B003326B2A417DD000BD0AAB /* CameraExtension.swift in Sources */,
 				B00332602A41385500BD0AAB /* MapGenerator.swift in Sources */,
 				B00332752A42A0F800BD0AAB /* StarsIcon.swift in Sources */,
+				B064406D2A4D27AB00456A76 /* ImageGenerator.swift in Sources */,
 				B00332772A42A73D00BD0AAB /* GameLogic.swift in Sources */,
 				B003324E2A3FF4F300BD0AAB /* StarNode.swift in Sources */,
 				B00332B52A45744A00BD0AAB /* MazeMapView.swift in Sources */,
+				B064406B2A4D278200456A76 /* CustomView.swift in Sources */,
 				B00332AB2A4432B500BD0AAB /* TrophyNode.swift in Sources */,
 				B00332462A3FEC0100BD0AAB /* GameVMExtension.swift in Sources */,
 				B00332CF2A49779800BD0AAB /* ShopScreen.swift in Sources */,
 				B003324C2A3FF4D800BD0AAB /* PlayerNode.swift in Sources */,
 				B00332BE2A495EA400BD0AAB /* MusicManager.swift in Sources */,
 				B06440552A4AB01F00456A76 /* SettingsButton.swift in Sources */,
-				B064404B2A4A811000456A76 /* NewBonusView.swift in Sources */,
 				B003328E2A43F76B00BD0AAB /* GameState.swift in Sources */,
 				B003329A2A44040600BD0AAB /* AlertView.swift in Sources */,
 				B0E6D64C2A3FE7AC00531D49 /* FlyGameApp.swift in Sources */,
@@ -696,7 +696,7 @@
 				DEVELOPMENT_TEAM = K76VZ7SA7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlyGame/Info.plist;
+				INFOPLIST_FILE = "KingJohnie1-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -730,7 +730,7 @@
 				DEVELOPMENT_TEAM = K76VZ7SA7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlyGame/Info.plist;
+				INFOPLIST_FILE = "KingJohnie1-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -756,7 +756,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0E6D6432A3FE7AC00531D49 /* Build configuration list for PBXProject "FlyGame" */ = {
+		B0E6D6432A3FE7AC00531D49 /* Build configuration list for PBXProject "KingJohnie1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0E6D6542A3FE7AE00531D49 /* Debug */,
@@ -765,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0E6D6562A3FE7AE00531D49 /* Build configuration list for PBXNativeTarget "FlyGame" */ = {
+		B0E6D6562A3FE7AE00531D49 /* Build configuration list for PBXNativeTarget "KingJohnie1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0E6D6572A3FE7AE00531D49 /* Debug */,

@@ -26,7 +26,9 @@ final class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        backgroundColor = SKColor(.blue)
+        self.view?.allowsTransparency = true
+        self.view?.backgroundColor = .clear
+        backgroundColor = SKColor(red: 0, green: 0, blue: 0, alpha: 0)
         self.addChild(pointer)
         setupMap()
         player = getPlayer()

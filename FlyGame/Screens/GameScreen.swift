@@ -19,6 +19,10 @@ struct GameScreen: View {
     var body: some View {
         
         ZStack {
+            Image(progress.currentBackground)
+                .resizable()
+                .ignoresSafeArea()
+                .scaledToFill()
             
             if gameVM.gameState != .gameOver && gameVM.gameState != .preGame {
                 GeometryReader { gr in
@@ -34,7 +38,6 @@ struct GameScreen: View {
                             .allowsHitTesting(false)
                             .transition(.opacity)
                     }
-                    
                 }
                 .edgesIgnoringSafeArea(.all)
                 
@@ -50,7 +53,7 @@ struct GameScreen: View {
             }
             
             else {
-                GameRulesView()
+                GameRulesView(gameVM: gameVM)
                     .transition(.opacity)
             }
             
@@ -72,10 +75,12 @@ struct GameScreen: View {
                 gameVM.isShowingLabirinth = false
                 gameVM.gameState = .labirinth
             })
+            .clearModalBackground()
         }
         
         .fullScreenCover(isPresented: $isShowingSettings) {
             SettingsScreen(isShowingSettings: $isShowingSettings)
+                .clearModalBackground()
                 .onAppear { gameVM.logic?.pause() }
                 .onDisappear { gameVM.logic?.unpause() }
             }

@@ -15,25 +15,34 @@ struct AlertView: View {
     var body: some View {
         
         ZStack {
-            Rectangle()
-                .fill(Color.white.opacity(0.4))
-                .ignoresSafeArea()
+            CustomView(image: ImageGenerator.rules.rawValue)
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.5,
+                       maxHeight: UIScreen.main.bounds.height * 0.75)
             
-            VStack(spacing: 40) {
+            VStack() {
                 
-                Spacer()
-                
-                alertItem.title
-                    .font(.system(size: 22, weight: .bold))
-                    .lineLimit(4)
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                alertItem.message
-                    .font(.system(size: 22, weight: .semibold))
-                    .lineLimit(4)
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                VStack {
+                    GeometryReader { geometry in
+                        alertItem.title
+                            .font(.custom("GlassAntiqua-Regular", size: 22))
+                            .lineLimit(4)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(width: geometry.size.width * 0.8)
+                    }
+                    
+                    GeometryReader { geometry in
+                        alertItem.message
+                            .font(.custom("GlassAntiqua-Regular", size: 20))
+                            .lineLimit(4)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(width: geometry.size.width * 0.8)
+                    }
+                }
+                .padding(.top)
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.3,
+                       maxHeight: UIScreen.main.bounds.height * 0.45)
                 
                 Spacer()
                 
@@ -44,14 +53,16 @@ struct AlertView: View {
                             alertItem.closeAction?()
                             action?()
                         }) {
-                            Text("Yes")
-                                .foregroundColor(.white)
-                                .font(.system(size: 22, weight: .bold))
-                                .frame(width: 120, height: 50)
+                            ZStack {
+                                CustomView(image: ImageGenerator.orangeBtn.rawValue)
+                                    .frame(height: UIScreen.main.bounds.height * 0.12)
+                                
+                                Text("Yes")
+                                    .foregroundColor(.white)
+                                    .font(.custom("GlassAntiqua-Regular", size: 22))
+                                    .frame(width: 120, height: 50)
+                            }
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(.red))
                         
                         Spacer()
                     }
@@ -60,27 +71,25 @@ struct AlertView: View {
                         SoundManager.shared.playSound(for: .click)
                         action?()
                     }) {
-                        alertItem.dismissButton
-                            .foregroundColor(.white)
-                            .font(.system(size: 22, weight: .bold))
-                            .frame(width: 120, height: 50)
+                        ZStack {
+                            CustomView(image: ImageGenerator.greenBtn.rawValue)
+                                .frame(height: UIScreen.main.bounds.height * 0.12)
+                            
+                            alertItem.dismissButton
+                                .foregroundColor(.white)
+                                .font(.custom("GlassAntiqua-Regular", size: 22))
+                        }
                     }
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(.red))
                 }
-                
-                Spacer()
             }
             .padding()
-            .frame(maxWidth: UIScreen.main.bounds.width * 0.5,
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.3,
                    maxHeight: UIScreen.main.bounds.height * 0.75)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.white))
-            .overlay(RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.red, lineWidth: 2))
         }
+        .frame(maxWidth: UIScreen.main.bounds.width ,
+               maxHeight: UIScreen.main.bounds.height)
+        .background(Color.black.opacity(0.6))
+        .ignoresSafeArea(edges: .all)
     }
 }
 

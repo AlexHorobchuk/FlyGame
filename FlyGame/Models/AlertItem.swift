@@ -24,7 +24,7 @@ struct AlertConfirmation {
                                   dismissButton: Text("No"))
     
     static let notEnoughFound = AlertItem(title: Text("Can`t buy item"),
-                                          message: Text("You don`t have nough found to buy this item"),
+                                          message: Text("You don`t have enough money to buy this item"),
                                           dismissButton: Text("Close"))
     
     static let notAllStarsCollected = AlertItem(title: Text("You Didn`t collet all stars"),

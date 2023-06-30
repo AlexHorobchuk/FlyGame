@@ -20,6 +20,7 @@ struct GameSpriteView: UIViewRepresentable {
         let view = SKView(frame: CGRect(origin: .zero, size: size))
         let scene = GameScene(viewModel: viewModel, size: size)
         scene.scaleMode = .resizeFill
+        view.backgroundColor = .clear
         view.presentScene(scene)
         return view
     }

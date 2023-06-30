@@ -18,6 +18,7 @@ struct LabirinthSpriteView: UIViewRepresentable {
         let view = SKView(frame: CGRect(origin: .zero, size: size))
         let scene = LabirinthScene(viewModel: viewModel, size: size)
         scene.scaleMode = .resizeFill
+        view.backgroundColor = UIColor.clear
         view.presentScene(scene)
         return view
     }

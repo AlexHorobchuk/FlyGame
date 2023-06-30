@@ -18,6 +18,7 @@ class UserDefaultsManager {
     private let bonusRecieved = "bonus"
     private let shopItemKey = "item"
     private let currentBackgroundKey = "background"
+    private let instruction = "instruction"
     
     private init() {
         UserDefaults.standard.register(defaults: [
@@ -27,19 +28,28 @@ class UserDefaultsManager {
             bonusRecieved : false,
             money : 0,
             shopItemKey : [String](),
-            currentBackgroundKey : ""
+            currentBackgroundKey : "Back1",
+            instruction: false
             
         ])
     }
     
+    var showedInstruction: Bool {
+        get { UserDefaults.standard.bool(forKey: instruction) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: instruction)
+            MusicManager.shared.playBackgroundMusic()
+        }
+    }
+    
     var currentBackground: String {
-        get { UserDefaults.standard.string(forKey: currentBackgroundKey) ?? "" }
+        get { UserDefaults.standard.string(forKey: currentBackgroundKey) ?? "Back1" }
         set { UserDefaults.standard.set(newValue, forKey: currentBackgroundKey) }
     }
     
     var shopItems: [String] {
         get {
-            return UserDefaults.standard.stringArray(forKey: "shopItem") ?? []
+            return UserDefaults.standard.stringArray(forKey: "shopItem") ?? ["Back1"]
         }
         set {
             var items = shopItems

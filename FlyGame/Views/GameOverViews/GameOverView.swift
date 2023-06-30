@@ -15,15 +15,31 @@ struct GameOverView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Text( didWin ? "You won" : "You lost")
+                .font(.custom("GlassAntiqua-Regular", size: 30))
+                .foregroundColor(.white)
             
-            Text("Your prize is")
+            Spacer()
             
-            Text("\(progress.getPrize(didWin: didWin))")
+            Text("Your prize is:")
+                .font(.custom("GlassAntiqua-Regular", size: 24))
+                .foregroundColor(.white)
+            
+            Spacer()
+            
+            Text("\(progress.getPrize(didWin: didWin))").font(.custom("GlassAntiqua-Regular", size: 28))
+                .foregroundColor(.white)
+            
+            Spacer()
             
             Button(action: { action?() }) {
-                Text("Done")
+                CustomView(image: ImageGenerator.menuBtn.rawValue)
+                    .frame(width: 140)
             }
+            
+            Spacer()
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -37,5 +53,6 @@ struct GameOverView: View {
 struct GameOverView_Previews: PreviewProvider {
     static var previews: some View {
         GameOverView(didWin: true, progress: ProgressVM())
+            .background(Color.black)
     }
 }

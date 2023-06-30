@@ -20,79 +20,94 @@ struct SettingsScreen: View {
         
         VStack {
             ZStack {
+                CustomView(image: ImageGenerator.settingsBack.rawValue)
+                
                 VStack {
-                    ScrollView {
-                        VStack(spacing: 20) {
-                            HStack {
-                                Text("Music")
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    SoundManager.shared.playSound(for: .click)
-                                    UserDefaultsManager.shared.isMusicEnabled.toggle()
-                                    MusicManager.shared.playBackgroundMusic()
-                                    musicOn.toggle()
-                                }) {
-                                    Text(musicOn ? "ON" : "OFF")
-                                }
-                            }
+                    
+                    VStack(spacing: 12) {
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Text("Music")
+                                .font(.custom("GlassAntiqua-Regular", size: 18))
                             
-                            HStack {
-                                Text("Sound")
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    UserDefaultsManager.shared.isSoundEnabled.toggle()
-                                    SoundManager.shared.playSound(for: .click)
-                                    soundOn.toggle()
-                                }) {
-                                    Text(soundOn ? "ON" : "OFF")
-                                }
-                            }
+                            Spacer()
                             
-                            HStack {
-                                Text("Vibration")
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    UserDefaultsManager.shared.isVibrationEnabled.toggle()
-                                    VibrationManager.shared.vibrate(for: .medium)
-                                    SoundManager.shared.playSound(for: .click)
-                                    vibrationOn.toggle()
-                                }) {
-                                    Text(vibrationOn ? "ON" : "OFF")
-                                }
-                            }
-                            
-                            Link(destination: URL(string: "https://docs.google.com/document/d/1XihqPI_flJmz8zjsL92yKhxG2fPhUdScP2nUy1y6KaU/edit?usp=sharing")!) {
-                                Text("PRIVACY POLICY")
-                            }
-                            .simultaneousGesture(TapGesture().onEnded {
+                            Button(action: {
                                 SoundManager.shared.playSound(for: .click)
-                            })
+                                UserDefaultsManager.shared.isMusicEnabled.toggle()
+                                MusicManager.shared.playBackgroundMusic()
+                                musicOn.toggle()
+                            }) {
+                                ToggleButton(isOn: $musicOn)
+                                    .frame(width: 30, height: 30)
+                            }
                         }
+                        
+                        HStack {
+                            Text("Sound")
+                                .font(.custom("GlassAntiqua-Regular", size: 18))
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                UserDefaultsManager.shared.isSoundEnabled.toggle()
+                                SoundManager.shared.playSound(for: .click)
+                                soundOn.toggle()
+                            }) {
+                                ToggleButton(isOn: $soundOn)
+                                    .frame(width: 30, height: 30)
+                            }
+                        }
+                        
+                        HStack {
+                            Text("Vibration")
+                                .font(.custom("GlassAntiqua-Regular", size: 18))
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                UserDefaultsManager.shared.isVibrationEnabled.toggle()
+                                VibrationManager.shared.vibrate(for: .medium)
+                                SoundManager.shared.playSound(for: .click)
+                                vibrationOn.toggle()
+                            }) {
+                                ToggleButton(isOn: $vibrationOn)
+                                    .frame(width: 30, height: 30)
+                            }
+                        }
+                        
+                        Link(destination: URL(string: "https://docs.google.com/document/d/1XihqPI_flJmz8zjsL92yKhxG2fPhUdScP2nUy1y6KaU/edit?usp=sharing")!) {
+                            Text("PRIVACY POLICY")
+                                .foregroundColor(.black)
+                                .font(.custom("GlassAntiqua-Regular", size: 20))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.8)
+                        }
+                        .simultaneousGesture(TapGesture().onEnded {
+                            SoundManager.shared.playSound(for: .click)
+                        })
                     }
+                    .padding(.bottom)
+                    
                     
                     Button(action: {
                         SoundManager.shared.playSound(for: .click)
                         isShowingSettings = false
                     }) {
-                        Text("Done")
+                        CustomView(image: ImageGenerator.ok.rawValue)
+                            .frame(height: UIScreen.main.bounds.height * 0.12)
                     }
-                    .padding(.vertical, 20)
                 }
+                .padding(.vertical, 15)
                 .padding(.horizontal, 10)
-                .fixedSize()
+                .frame(width: UIScreen.main.bounds.width * 0.20)
             }
-            .frame(maxWidth: UIScreen.main.bounds.width * 0.65, maxHeight: UIScreen.main.bounds.height * 0.75)
-            .background(Color.white)
-            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .ignoresSafeArea(edges: .top)
+            .frame(height: UIScreen.main.bounds.height * 0.85)
         }
-        .frame(maxWidth: UIScreen.main.bounds.width , maxHeight: UIScreen.main.bounds.height)
+        .frame(maxWidth: UIScreen.main.bounds.width ,
+               maxHeight: UIScreen.main.bounds.height)
         .background(Color.black.opacity(0.6))
         .ignoresSafeArea(edges: .all)
     }

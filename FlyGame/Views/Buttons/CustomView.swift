@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CustomView: View {
     
-    var image: ImageGenerator
+    var image: String
     
     var body: some View {
-        Image(image.rawValue)
+        Image(image)
             .resizable()
             .scaledToFit()
     }
@@ -20,6 +20,6 @@ struct CustomView: View {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomView(image: .chest)
+        CustomView(image: "Chest")
     }
 }

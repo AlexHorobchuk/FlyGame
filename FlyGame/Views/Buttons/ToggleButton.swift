@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct ToggleButton: View {
+    
+    @Binding var isOn: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Image(isOn ? ImageGenerator.settingsOn.rawValue :
+                ImageGenerator.settingsOff.rawValue)
+            .resizable()
+            .scaledToFit()
     }
 }
 
 struct ToggleButton_Previews: PreviewProvider {
     static var previews: some View {
-        ToggleButton()
+        ToggleButton(isOn: .constant(true))
     }
 }

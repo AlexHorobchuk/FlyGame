@@ -7,18 +7,20 @@
 
 import Foundation
 
-enum ShopItems: CaseIterable {
-    case one, two, three
+enum ShopItems: String, CaseIterable {
+    case one = "Back1",
+         two = "Back2",
+         three = "Back3"
     
     func getShopingItem() -> ShopingItem {
         switch self {
             
         case .one:
-            return ShopingItem(price: 500, name: "One")
+            return ShopingItem(price: 500, name: "Back1", image: "Back1Item")
         case .two:
-            return ShopingItem(price: 500, name: "Two")
+            return ShopingItem(price: 500, name: "Back2", image: "Back2Item")
         case .three:
-            return ShopingItem(price: 500, name: "Three")
+            return ShopingItem(price: 500, name: "Back3", image: "Back3Item")
         }
     }
 }
@@ -28,5 +30,6 @@ struct ShopingItem {
     var id = UUID()
     var price: Int
     var name: String
+    var image: String
     
 }

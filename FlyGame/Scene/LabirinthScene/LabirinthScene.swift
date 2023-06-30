@@ -25,7 +25,9 @@ final class LabirinthScene: SKScene {
     
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        backgroundColor = SKColor(.white)
+        self.view?.allowsTransparency = true
+        self.view?.backgroundColor = .clear
+        backgroundColor = SKColor(red: 0, green: 0, blue: 0, alpha: 0)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         physicsWorld.contactDelegate = self
         

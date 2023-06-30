@@ -6,16 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class ProgressVM: ObservableObject {
     
     @Published var money: Int
     @Published var alert: AlertItem?
+    @Published var currentBackground: String
+    @Published var allBackgrounds: [String]
     
     var prize: Int?
     
     init () {
         self.money = UserDefaultsManager.shared.moneyCount
+        self.currentBackground = UserDefaultsManager.shared.currentBackground
+        self.allBackgrounds = UserDefaultsManager.shared.shopItems
     }
     
     private func canBuy(item: ShopingItem) -> Bool {
@@ -46,15 +51,27 @@ final class ProgressVM: ObservableObject {
     func update() {
         DispatchQueue.main.async {
             self.money = UserDefaultsManager.shared.moneyCount
+            self.allBackgrounds = UserDefaultsManager.shared.shopItems
+            self.currentBackground = UserDefaultsManager.shared.currentBackground
         }
     }
     
     func buy(item: ShopingItem) {
-        if canBuy(item: item) {
-            UserDefaultsManager.shared.moneyCount -= item.price
-            update()
-        } else {
-            alert = AlertConfirmation.notEnoughFound
+        withAnimation(.easeInOut(duration: 1)) {
+            if allBackgrounds.contains(where: { $0 == item.name } ) {
+                UserDefaultsManager.shared.currentBackground = item.name
+                update()
+            }
+            else {
+                if canBuy(item: item) {
+                    UserDefaultsManager.shared.moneyCount -= item.price
+                    UserDefaultsManager.shared.currentBackground = item.name
+                    UserDefaultsManager.shared.shopItems = [item.name]
+                    update()
+                } else {
+                    alert = AlertConfirmation.notEnoughFound
+                }
+            }
         }
     }
 }
