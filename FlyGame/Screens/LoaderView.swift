@@ -48,7 +48,9 @@ struct LoaderView: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.8...1.5) * Double(randomCount)) {
-            loading = false
+            withAnimation(.easeInOut(duration: 1.5)) {
+                loading = false
+            }
         }
     }
 }

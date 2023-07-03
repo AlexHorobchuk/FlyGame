@@ -16,6 +16,7 @@ struct FlyGameApp: App {
         WindowGroup {
             if loading == true {
                 LoaderView(loading: $loading)
+                    .transition(.opacity)
             } else {
                 StartScreen()
                     .onAppear {
