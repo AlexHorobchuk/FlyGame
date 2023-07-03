@@ -16,20 +16,24 @@ struct HelthBar: View {
         ZStack {
             GeometryReader { geometry in
                 RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.gray)
+                    .fill(LinearGradient(colors: [Color("Health3"), Color("Health4") ], startPoint: .top, endPoint: .bottom))
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 
                 RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.red)
+                    .fill(LinearGradient(colors: [Color("Health2"), Color("Health1") ], startPoint: .top, endPoint: .bottom))
                     .frame(width: geometry.size.width * CGFloat(health) * 0.01, height: geometry.size.height)
             }
-            .overlay(RoundedRectangle(cornerRadius: 25)
-                .stroke(.white, lineWidth: 2))
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.25,
+                   maxHeight: UIScreen.main.bounds.height * 0.05)
             
+            HStack {
+                CustomView(image: ImageGenerator.hart.rawValue)
+                    .offset(x: -UIScreen.main.bounds.height * 0.095)
+                Spacer()
+            }
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.25,
+                   maxHeight: UIScreen.main.bounds.height * 0.1)
         }
-        .opacity(0.8)
-        .frame(maxWidth: UIScreen.main.bounds.width * 0.25,
-               maxHeight: UIScreen.main.bounds.height * 0.06)
     }
 }
 

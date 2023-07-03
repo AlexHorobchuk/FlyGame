@@ -13,7 +13,7 @@ final class WallNode: SKSpriteNode {
     var angle: CGFloat = 0
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "square")!)
+        let texture = SKTexture(image: UIImage(named: "Lab1")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: side, height: side))
         self.position = position
         setUpNode()

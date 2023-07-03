@@ -11,7 +11,7 @@ struct GameScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var gameVM = GameVM(points: 1)
+    @StateObject var gameVM = GameVM(points: Int.random(in: 7...12))
     @StateObject var progress = ProgressVM()
     
     @State var isShowingSettings = false
@@ -41,7 +41,11 @@ struct GameScreen: View {
                 }
                 .edgesIgnoringSafeArea(.all)
                 
-                GameView(gameVM: gameVM)
+                GameView(gameVM: gameVM,
+                         showSettings: { isShowingSettings = true },
+                         goBack: {
+                    gameVM.alert = AlertConfirmation.goBack
+                    gameVM.alert?.closeAction = { presentationMode.wrappedValue.dismiss() } })
             }
             
             else if gameVM.gameState == .gameOver {
@@ -86,29 +90,6 @@ struct GameScreen: View {
             }
         
         .navigationBarBackButtonHidden(true)
-        
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    SoundManager.shared.playSound(for: .click)
-                    isShowingSettings = true
-                }) {
-                    SettingsButton()
-                }
-                .offset(y: 5)
-            }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    SoundManager.shared.playSound(for: .click)
-                    gameVM.alert = AlertConfirmation.goBack
-                    gameVM.alert?.closeAction = { presentationMode.wrappedValue.dismiss() }
-                }) {
-                    CloseScreenButton()
-                }
-                .offset(y: 5)
-            }
-        }
     }
 }
 

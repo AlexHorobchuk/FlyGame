@@ -16,7 +16,7 @@ struct ShootButton: View {
                 .fill(Color.white.opacity(0.8))
                 .frame(width: 80, height: 80)
             
-            Image(systemName: "flame.fill")
+            Image(ImageGenerator.fire.rawValue)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 70, height: 70)

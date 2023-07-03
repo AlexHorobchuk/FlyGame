@@ -14,31 +14,30 @@ struct AlertView: View {
     
     var body: some View {
         
-        ZStack {
+        ZStack(alignment: .center) {
             CustomView(image: ImageGenerator.rules.rawValue)
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.5,
                        maxHeight: UIScreen.main.bounds.height * 0.75)
+
             
-            VStack() {
+            VStack {
                 
                 VStack {
-                    GeometryReader { geometry in
+                    Spacer()
                         alertItem.title
                             .font(.custom("GlassAntiqua-Regular", size: 22))
                             .lineLimit(4)
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
-                            .frame(width: geometry.size.width * 0.8)
-                    }
                     
-                    GeometryReader { geometry in
+                    Spacer()
+                    
                         alertItem.message
                             .font(.custom("GlassAntiqua-Regular", size: 20))
                             .lineLimit(4)
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
-                            .frame(width: geometry.size.width * 0.8)
-                    }
+                    Spacer()
                 }
                 .padding(.top)
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.3,
@@ -80,6 +79,7 @@ struct AlertView: View {
                                 .font(.custom("GlassAntiqua-Regular", size: 22))
                         }
                     }
+                    .padding(.trailing)
                 }
             }
             .padding()

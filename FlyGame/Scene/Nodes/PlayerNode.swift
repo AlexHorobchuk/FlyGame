@@ -11,10 +11,13 @@ final class PlayerNode: SKSpriteNode {
     
     var radius: CGFloat = 30
     var angle: CGFloat = 0
+    var arrow: ArrowNode!
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "face.smiling.inverse")!)
+        let texture = SKTexture(image: UIImage(named: "Player")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
+        let ratio = radius * 2 / self.size.width
+        self.setScale(ratio)
         setUpNode()
     }
     
@@ -25,8 +28,12 @@ final class PlayerNode: SKSpriteNode {
     private func setUpNode() {
         self.name = "Player"
         self.zPosition = 3
+        arrow = ArrowNode()
+        arrow.position.y = self.position.y - (radius * 0.9)
+        self.addChild(arrow)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        self.physicsBody?.allowsRotation = false
         self.physicsBody?.categoryBitMask = PhysicCategory.player
         self.physicsBody?.collisionBitMask = PhysicCategory.labyrinth | PhysicCategory.boundry
         self.physicsBody?.contactTestBitMask = PhysicCategory.obstacle | PhysicCategory.labyrinth | PhysicCategory.star
@@ -41,6 +48,7 @@ final class PlayerNode: SKSpriteNode {
         let newAngle = atan2(y, x)
         move(x: x, y: y)
         angle = newAngle
+        arrow?.zRotation = -angle
     }
     
     func attacked() {

@@ -45,7 +45,7 @@ class MapFactory {
     
     private func setEnemy(row: Int, col: Int, rightPath: [(Int, Int)]) -> Bool {
         guard !rightPath.contains(where: { $0 == (row, col) }) else { return false }
-        let random = Int.random(in: 0...5)
+        let random = Int.random(in: 0...4)
         guard random == 0 else { return false }
         return true
     }
@@ -64,7 +64,10 @@ class MapFactory {
                 node.position = position
                 if node is EnemyNode {
                     guard let rightPath = rightPath, setEnemy(row: row, col: col, rightPath: rightPath) else { continue }
-                    allNodes.append(node)
+                    let rightNode = Int.random(in: 0...5) != 5 ? node : StartNode()
+                    rightNode.position = position
+                    rightNode.removeAllChildren()
+                    allNodes.append(rightNode)
                 }
                 else {
                     allNodes.append(node)

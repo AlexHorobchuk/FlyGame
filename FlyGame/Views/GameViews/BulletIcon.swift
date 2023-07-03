@@ -12,19 +12,20 @@ struct BulletIcon: View {
     var bullets: Int
     
     var body: some View {
-        HStack {
-            Image(systemName: "flame.fill")
+        HStack(spacing: -10) {
+            Image(ImageGenerator.fire.rawValue)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.08,
                        maxHeight: UIScreen.main.bounds.height * 0.08)
             HStack(spacing: 2) {
                 Text("x")
-                    .font(.system(size: 20, weight: .bold))
+                    .font(.system(size: 23, weight: .bold))
                 
                 Text("\(bullets)")
-                    .font(.system(size: 24, weight: .heavy))
+                    .font(.system(size: 26, weight: .heavy))
             }
+            .foregroundColor(.white)
         }
         .foregroundColor(Color.black.opacity(0.6))
             

@@ -10,7 +10,7 @@ import SpriteKit
 extension GameScene: SKPhysicsContactDelegate {
     
     enum PhysicCollisionType {
-        case playerObstacle, playerStar, playerLabirint, bulletObstacle, unknown
+        case playerObstacle, playerStar, playerLabirint, bulletObstacle, unknown, obstacleObstacle
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -30,6 +30,8 @@ extension GameScene: SKPhysicsContactDelegate {
             return .playerLabirint
         case (PhysicCategory.bullet, PhysicCategory.obstacle), (PhysicCategory.obstacle, PhysicCategory.bullet):
             return .bulletObstacle
+        case (PhysicCategory.obstacle, PhysicCategory.obstacle), (PhysicCategory.obstacle, PhysicCategory.obstacle):
+            return .obstacleObstacle
         case (_, _):
             return .unknown
         }
@@ -41,8 +43,8 @@ extension GameScene: SKPhysicsContactDelegate {
         case .playerObstacle:
             SoundManager.shared.playSound(for: .hit)
             VibrationManager.shared.vibrate(for: .medium)
-            let obstacle = bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB
-            obstacle.removeFromParent()
+            let obstacle = (bodyA.physicsBody?.categoryBitMask == PhysicCategory.obstacle ? bodyA : bodyB) as? ObstacleNode
+            obstacle?.gotShot()
             player.attacked()
             viewModel.playerAttacked()
             
@@ -63,6 +65,11 @@ extension GameScene: SKPhysicsContactDelegate {
             obstacle?.gotShot()
         case .unknown:
             return
+        case .obstacleObstacle:
+            let bodyA = bodyA as? ObstacleNode
+            let bodyB = bodyB as? ObstacleNode
+            bodyA?.gotShot()
+            bodyB?.gotShot()
         }
     }
 }

@@ -24,8 +24,8 @@ final class GameVM: ObservableObject {
     init (points: Int) {
         self.starsQuontity = points
         self.collectedStars = 0
-        self.bullets = points * 2
-        self.gameState = .preGame
+        self.bullets = points * 3
+        self.gameState = .starCollection
     }
     
     func getMap(type: MapType) -> [[MapCell]] {
@@ -54,15 +54,21 @@ final class GameVM: ObservableObject {
         collectedStars += 1
         if collectedStars == starsQuontity {
             withAnimation(.easeInOut(duration: 1.0)) {
-                gameState = .lookingForLabirinth
+                if gameState == .starCollection {
+                    gameState = .lookingForLabirinth
+                }
             }
         }
     }
     
     func hitLabirint() {
         guard starsQuontity == collectedStars else { return alert = AlertConfirmation.notAllStarsCollected }
-        withAnimation(.easeInOut(duration: 1.0)) { 
-            isShowingLabirinth = true
+        withAnimation(.easeInOut(duration: 1.0)) {
+            if gameState == .starCollection {
+                isShowingLabirinth = true
+            } else if gameState == .labirinth {
+                gotTrophy()
+            }
         }
     }
     
@@ -73,6 +79,13 @@ final class GameVM: ObservableObject {
             if health <= 0 {
                 gameState = .gameOver
             }
+        }
+    }
+    
+    func setLabirinthGame(starQuantity: Int) {
+        DispatchQueue.main.async {
+            self.starsQuontity = starQuantity
+            self.collectedStars = 0
         }
     }
     

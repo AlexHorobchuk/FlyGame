@@ -22,25 +22,23 @@ struct PreLabirinthView: View {
                 .fill(Color.white.opacity(0.4))
                 .ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: -10) {
                 MazeMapView(maze: maze, correctmaze: correctmaze ?? [(0, 0)])
                 
-                Button(action: { action?() }) {
-                    Text("Tap to continue")
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(width: 220, height: 55)
-                        .background(Color.red)
-                        .clipShape(Capsule())
+                Button(action: {
+                    SoundManager.shared.playSound(for: .click)
+                    action?()
+                }) {
+                    CustomView(image: ImageGenerator.ok.rawValue)
+                        .frame(width: 70, height: 60)
                         .scaleEffect(animate ? 1 : 0.8)
+                        .offset(y: 20)
                 }
             }
-            .padding()
+            .padding(10)
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.white))
-            .overlay(RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.red, lineWidth: 2))
         }
         .onAppear {
             withAnimation(.easeInOut(duration: 1).repeatForever()) {

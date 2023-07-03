@@ -13,7 +13,7 @@ final class LabirinthNode: SKSpriteNode {
     var isMoving = false
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "house.fill")!)
+        let texture = SKTexture(image: UIImage(named: "Labirinth")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: sideLength, height: sideLength))
         self.position = position
         self.name = "Labirinth"
@@ -26,9 +26,10 @@ final class LabirinthNode: SKSpriteNode {
     
     private func setUpNode() {
         self.zPosition = 2
+        let ratio = sideLength / self.size.width
+        self.setScale(ratio)
         
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: sideLength, height: sideLength))
-        self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
         self.physicsBody?.categoryBitMask = PhysicCategory.labyrinth
         self.physicsBody?.collisionBitMask = PhysicCategory.player

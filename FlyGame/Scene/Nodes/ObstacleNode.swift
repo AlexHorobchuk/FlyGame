@@ -12,7 +12,7 @@ final class ObstacleNode: SKSpriteNode {
     var radius: CGFloat = 20
     
     init(position: CGPoint) {
-        let texture = SKTexture(image: UIImage(systemName: "moon.stars.circle.fill")!)
+        let texture = SKTexture(image: UIImage(named: "Meteor\(Int.random(in: 1...4))")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
         self.zPosition = 1
         self.position = position
@@ -25,12 +25,14 @@ final class ObstacleNode: SKSpriteNode {
     }
     
     private func setUpNode() {
+        let ratio = radius * 2 / self.size.width
+        self.setScale(ratio)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = PhysicCategory.obstacle
         self.physicsBody?.collisionBitMask = 0
-        self.physicsBody?.contactTestBitMask = PhysicCategory.player | PhysicCategory.bullet
+        self.physicsBody?.contactTestBitMask = PhysicCategory.player | PhysicCategory.bullet | PhysicCategory.obstacle
         self.physicsBody?.usesPreciseCollisionDetection = true
     }
     

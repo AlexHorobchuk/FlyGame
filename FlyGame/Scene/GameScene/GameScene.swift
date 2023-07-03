@@ -36,6 +36,7 @@ final class GameScene: SKScene {
         setupCamera()
         physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -1)
+        meteorRain()
     }
     
     func findClosestStar() -> StartNode? {
@@ -92,8 +93,28 @@ final class GameScene: SKScene {
     func setupCamera() {
         self.addChild(cameraNode)
         self.camera = cameraNode
+        cameraNode.setScale(0.8)
         let cameraConstraint = SKConstraint.distance(SKRange(constantValue: 0), to: player)
         cameraNode.constraints = [cameraConstraint]
+    }
+    
+    func createMeteor() {
+        let meteor = ObstacleNode(position: CGPoint(x: self.player.position.x + CGFloat.random(in: (-100...100)),
+                                                      y: self.player.position.y + 800))
+        self.addChild(meteor)
+        meteor.physicsBody?.applyImpulse(CGVector(dx: Int.random(in: -50...50),
+                                                  dy: -50))
+        meteor.run(SKAction.sequence([.wait(forDuration: 5),
+                                      SKAction.run { self.removeFromParent() }]))
+    }
+    
+    func meteorRain() {
+        let waitAction = SKAction.wait(forDuration: 2)
+        let runAction = SKAction.run { self.createMeteor() }
+        let sequenceAction = SKAction.sequence([waitAction, runAction])
+        let repeatAction = SKAction.repeatForever(sequenceAction)
+
+        self.run(repeatAction)
     }
     
     override func update(_ currentTime: TimeInterval) {

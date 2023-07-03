@@ -13,7 +13,7 @@ final class BulletNode: SKSpriteNode {
     var angle: CGFloat? = nil
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "flame.fill")!)
+        let texture = SKTexture(image: UIImage(named: ImageGenerator.fire.rawValue)!)
         super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
         setUpNode()
     }
@@ -24,6 +24,8 @@ final class BulletNode: SKSpriteNode {
     
     private func setUpNode() {
         self.zPosition = 2
+        let ratio = radius * 2 / self.size.width
+        self.setScale(ratio)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.affectedByGravity = false
@@ -33,8 +35,15 @@ final class BulletNode: SKSpriteNode {
         self.physicsBody?.usesPreciseCollisionDetection = true
     }
     
-    func shootInDirection(direction: CGFloat) {
+    func setUpEmitter(target: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "Bullet")!
         
+        emitter.zPosition = 1
+        emitter.targetNode = target
+        self.addChild(emitter)
+    }
+    
+    func shootInDirection(direction: CGFloat) {
         let targetX = cos(direction) * 1200
         let targetY = sin(direction) * 1200
         

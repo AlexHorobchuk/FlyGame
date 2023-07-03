@@ -9,12 +9,19 @@ import SwiftUI
 
 @main
 struct FlyGameApp: App {
+    
+    @State var loading = true
+    
     var body: some Scene {
         WindowGroup {
-            StartScreen()
-                .onAppear {
-                    MusicManager.shared.playBackgroundMusic()
-                }
+            if loading == true {
+                LoaderView(loading: $loading)
+            } else {
+                StartScreen()
+                    .onAppear {
+                        MusicManager.shared.playBackgroundMusic()
+                    }
+            }
         }
     }
 }

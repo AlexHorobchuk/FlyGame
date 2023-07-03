@@ -26,5 +26,8 @@ enum ImageGenerator: String {
          settingsBack = "SettingsBack",
          orangeBtn = "OrangeBtn",
          greenBtn = "GreenBtn",
-         menuBtn = "MenuBtn"
+         menuBtn = "MenuBtn",
+         hart = "Hart",
+         star = "Star",
+         fire = "Fire"
 }

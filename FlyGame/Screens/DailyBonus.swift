@@ -68,7 +68,9 @@ struct DailyBonus: View {
             }
             .frame(height: UIScreen.main.bounds.height * 0.6)
             .fixedSize()
-            
+            .onDisappear {
+                progress.update()
+            }
             Spacer()
         }
         .frame(maxWidth: UIScreen.main.bounds.width ,

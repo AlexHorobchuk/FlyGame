@@ -12,7 +12,7 @@ final class StartNode: SKSpriteNode {
     var radius: CGFloat = 30
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "star.fill")!)
+        let texture = SKTexture(image: UIImage(named: "Star")!)
         super.init(texture: texture, color: .clear, size: CGSize(width: radius * 2, height: radius * 2))
         self.name = "Star"
         setUpNode()
@@ -40,9 +40,11 @@ final class StartNode: SKSpriteNode {
     }
     
     private func setUpNode() {
+        let ratio = radius * 2 / self.size.width
+        self.setScale(ratio)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
         self.physicsBody?.categoryBitMask = PhysicCategory.star
         self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.contactTestBitMask = PhysicCategory.player

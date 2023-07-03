@@ -19,6 +19,7 @@ extension GameScene : GameLogicService {
     
     func shoot() {
         let bullet = player.shoot()
+        bullet.setUpEmitter(target: self)
         self.addChild(bullet)
     }
     

@@ -30,10 +30,6 @@ class SoundManager: NSObject, AVAudioPlayerDelegate {
         isSoundOn = UserDefaultsManager.shared.isSoundEnabled
         
         if isSoundOn {
-            if player?.isPlaying == true {
-                return
-            }
-            
             if let url = Bundle.main.url(forResource: name.rawValue, withExtension: "mp3") {
                 do {
                     player = try AVAudioPlayer(contentsOf: url)

@@ -9,11 +9,13 @@ import SpriteKit
 
 class PointerNode: SKSpriteNode {
     
-    var radius: CGFloat = 25
+    var radius: CGFloat = 20
     
     init() {
-        let texture = SKTexture(image: UIImage(systemName: "arrow.up.circle.fill")!)
+        let texture = SKTexture(image: UIImage(named: "Point")!)
         super.init(texture: texture, color: .black, size: CGSize(width: radius * 2, height: radius * 2))
+        let ratio = radius * 2 / self.size.width
+        self.setScale(ratio)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,8 +29,8 @@ class PointerNode: SKSpriteNode {
         let pointerRotation = angle - CGFloat.pi / 2.0
         self.zRotation = pointerRotation
         
-        let horizontalDistanceFromEdge: CGFloat = 100.0
-        let verticalDistanceFromEdge: CGFloat = 50.0
+        let horizontalDistanceFromEdge: CGFloat = 140.0
+        let verticalDistanceFromEdge: CGFloat = 70.0
         
         let targetPosition = CGPoint(
             x: center.x + cos(angle) * (sceneSize.width / 2.0 - horizontalDistanceFromEdge),

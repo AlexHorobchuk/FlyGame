@@ -38,12 +38,17 @@ final class LabirinthScene: SKScene {
     }
     
     func setupMap() {
+        var stars = 0
         let nodes = mapFactory.setupMap(map: viewModel.getMap(type: .labirinth),
                                         mapType: .labirinth,
                                         rightPath: viewModel.mazeGenerator.findPathFromStartToFinish())
         for node in nodes {
+            if node.name == "Star" {
+                stars += 1
+            }
             self.addChild(node)
         }
+        viewModel.setLabirinthGame(starQuantity: stars)
     }
     
     func getPlayer() -> PlayerNode? {

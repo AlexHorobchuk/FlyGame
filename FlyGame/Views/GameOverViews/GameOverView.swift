@@ -46,6 +46,9 @@ struct GameOverView: View {
                 SoundManager.shared.playSound(for: didWin ? .won : .loose)
             }
         }
+        .onDisappear {
+            progress.update()
+        }
         .transition(.opacity)
     }
 }

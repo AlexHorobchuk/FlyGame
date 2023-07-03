@@ -10,6 +10,7 @@ import SwiftUI
 struct StartScreen: View {
     
     @StateObject var progress = ProgressVM()
+    
     @State var showingSettings = false
     @State var showingDailyBonus = false
     
