@@ -102,6 +102,7 @@ final class GameScene: SKScene {
         let meteor = ObstacleNode(position: CGPoint(x: self.player.position.x + CGFloat.random(in: (-100...100)),
                                                       y: self.player.position.y + 800))
         self.addChild(meteor)
+        meteor.setUpEmitter(target: self)
         meteor.physicsBody?.applyImpulse(CGVector(dx: Int.random(in: -50...50),
                                                   dy: -50))
         meteor.run(SKAction.sequence([.wait(forDuration: 5),

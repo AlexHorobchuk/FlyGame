@@ -67,11 +67,11 @@
 		B02467642A5240B900F84BAD /* Shot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B02467632A5240B900F84BAD /* Shot.mp3 */; };
 		B024676A2A52584200F84BAD /* Bullet.sks in Resources */ = {isa = PBXBuildFile; fileRef = B02467692A52584200F84BAD /* Bullet.sks */; };
 		B024676C2A526C2500F84BAD /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024676B2A526C2500F84BAD /* LoaderView.swift */; };
+		B024676E2A529D9F00F84BAD /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B024676D2A529D9F00F84BAD /* Music.mp3 */; };
 		B06440492A4A7F5100456A76 /* DailyBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440482A4A7F5100456A76 /* DailyBonus.swift */; };
 		B06440522A4AAF5400456A76 /* CloseScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440512A4AAF5400456A76 /* CloseScreenButton.swift */; };
 		B06440552A4AB01F00456A76 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06440542A4AB01F00456A76 /* SettingsButton.swift */; };
 		B06440582A4AB63700456A76 /* Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440572A4AB63700456A76 /* Click.mp3 */; };
-		B064405A2A4AB63F00456A76 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440592A4AB63F00456A76 /* Music.mp3 */; };
 		B064405C2A4AB64700456A76 /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B064405B2A4AB64700456A76 /* Win.mp3 */; };
 		B064405E2A4AB64E00456A76 /* Defeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B064405D2A4AB64E00456A76 /* Defeat.mp3 */; };
 		B06440642A4AB86700456A76 /* Trophy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B06440632A4AB86700456A76 /* Trophy.mp3 */; };
@@ -147,11 +147,11 @@
 		B02467632A5240B900F84BAD /* Shot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shot.mp3; sourceTree = "<group>"; };
 		B02467692A52584200F84BAD /* Bullet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bullet.sks; sourceTree = "<group>"; };
 		B024676B2A526C2500F84BAD /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		B024676D2A529D9F00F84BAD /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		B06440482A4A7F5100456A76 /* DailyBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBonus.swift; sourceTree = "<group>"; };
 		B06440512A4AAF5400456A76 /* CloseScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseScreenButton.swift; sourceTree = "<group>"; };
 		B06440542A4AB01F00456A76 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		B06440572A4AB63700456A76 /* Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Click.mp3; sourceTree = "<group>"; };
-		B06440592A4AB63F00456A76 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		B064405B2A4AB64700456A76 /* Win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Win.mp3; sourceTree = "<group>"; };
 		B064405D2A4AB64E00456A76 /* Defeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Defeat.mp3; sourceTree = "<group>"; };
 		B06440632A4AB86700456A76 /* Trophy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Trophy.mp3; sourceTree = "<group>"; };
@@ -376,12 +376,12 @@
 		B06440562A4AB5EA00456A76 /* SoundsAndMusic */ = {
 			isa = PBXGroup;
 			children = (
+				B024676D2A529D9F00F84BAD /* Music.mp3 */,
 				B02467632A5240B900F84BAD /* Shot.mp3 */,
 				B06440632A4AB86700456A76 /* Trophy.mp3 */,
 				B06440652A4ABBF200456A76 /* Hit.mp3 */,
 				B064405D2A4AB64E00456A76 /* Defeat.mp3 */,
 				B064405B2A4AB64700456A76 /* Win.mp3 */,
-				B06440592A4AB63F00456A76 /* Music.mp3 */,
 				B06440572A4AB63700456A76 /* Click.mp3 */,
 			);
 			path = SoundsAndMusic;
@@ -490,9 +490,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B024676E2A529D9F00F84BAD /* Music.mp3 in Resources */,
 				B024676A2A52584200F84BAD /* Bullet.sks in Resources */,
 				B02467642A5240B900F84BAD /* Shot.mp3 in Resources */,
-				B064405A2A4AB63F00456A76 /* Music.mp3 in Resources */,
 				B064405E2A4AB64E00456A76 /* Defeat.mp3 in Resources */,
 				B06440642A4AB86700456A76 /* Trophy.mp3 in Resources */,
 				B064406F2A4D468900456A76 /* GlassAntiqua-Regular.ttf in Resources */,
